@@ -6,7 +6,7 @@ navbar:
   - text: "Home"
    href: index.html
   - text: "Speed and Distance"
-   href: docs/speed-and-distance.html
+   href: docs/intro.html
 output:
   html_document:
  theme: cosmo
