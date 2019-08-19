@@ -3,10 +3,10 @@ output_dir: "docs"
 navbar:
   title: "Learn-R"
   left:
-  - text: "Home"
-   href: index.html
-  - text: "Introduction"
-   href: docs/intro.html
+    - text: "Home"
+      href: index.html
+    - text: "Introduction"
+      href: intro.html
 output:
   html_document:
- theme: cosmo
+    theme: cosmo
