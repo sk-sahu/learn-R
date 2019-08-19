@@ -1,0 +1,35 @@
+---
+title: "Introduction"
+author: "Sangram"
+date: '`r format(Sys.time(), "Last modified: %d %b %Y")`'
+output: 
+  html_document:
+    toc: true
+    number_sections: true
+    toc_depth: 3
+    toc_float:
+      collapsed: true
+      #smooth_scroll: false
+    theme: readable
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## What is R?
+
+* A statistical programming environment
+    + based on 'S'
+    + suited to high-level data analysis
+* But offers much more than just statistics
+* Open source and cross platform
+* Extensive graphics capabilities
+* Diverse range of add-on packages
+* Active community of developers
+* Thorough documentation
+
+http://www.r-project.org/
+
+## Why R?
