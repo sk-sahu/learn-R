@@ -1,0 +1,12 @@
+name: "Learn-R"
+output_dir: "docs"
+navbar:
+  title: "Learn-R"
+  left:
+  - text: "Home"
+   href: index.html
+  - text: "Introduction"
+   href: docs/intro.html
+output:
+  html_document:
+ theme: cosmo
