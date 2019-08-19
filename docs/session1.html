@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Session-1</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Learn-R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="intro.html">Introduction</a>
+</li>
+<li>
+  <a href="session1.html">Session-1</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Session-1</h1>
+
+</div>
+
+
+<p>Understanding Basic Data Types and Data Structures in R</p>
+<div id="data-type" class="section level1">
+<h1><span class="header-section-number">1</span> Data Type</h1>
+<p>To make the best of the R language, you’ll need a strong understanding of the basic data types and data structures and how to operate on them.</p>
+<p>Data structures are very important to understand because these are the objects you will manipulate on a day-to-day basis in R. Dealing with object conversions is one of the most common sources of frustration for beginners.</p>
+<p><strong>Everything</strong> in R is an object.</p>
+<p>R has 6 basic data types. (In addition to the five listed below, there is also <em>raw</em> which will not be discussed in this session.)</p>
+<ul>
+<li>character</li>
+<li>numeric (real or decimal)</li>
+<li>integer</li>
+<li>logical</li>
+<li>complex</li>
+</ul>
+<p>Elements of these data types may be combined to form data structures, such as atomic vectors. When we call a vector <em>atomic</em>, we mean that the vector only holds data of a single data type. Below are examples of atomic character vecotrs, numeric vectors, integer vectors, etc.</p>
+<ul>
+<li><strong>character</strong>: <code>&quot;a&quot;</code>, <code>&quot;swc&quot;</code></li>
+<li><strong>numeric</strong>: <code>2</code>, <code>15.5</code></li>
+<li><strong>integer</strong>: <code>2L</code> (the <code>L</code> tells R to store this as an integer)</li>
+<li><strong>logical</strong>: <code>TRUE</code>, <code>FALSE</code></li>
+<li><strong>complex</strong>: <code>1+4i</code> (complex numbers with real and imaginary parts)</li>
+</ul>
+<p>R provides many functions to examine features of vectors and other objects, for example</p>
+<ul>
+<li><code>class()</code> - what kind of object is it (high-level)?</li>
+<li><code>typeof()</code> - what is the object’s data type (low-level)?</li>
+<li><code>length()</code> - how long is it? What about two dimensional objects?</li>
+<li><code>attributes()</code> - does it have any metadata?</li>
+</ul>
+<pre class="r"><code># Example
+x &lt;- &quot;biology&quot;
+typeof(x)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>attributes(x)</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>y &lt;- 1:10
+y</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>typeof(y)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>length(y)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>z &lt;- as.numeric(y)
+z</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>typeof(z)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+</div>
+<div id="data-structure" class="section level1">
+<h1><span class="header-section-number">2</span> Data Structure</h1>
+<p>R has many <strong>data structures</strong>. These include</p>
+<ul>
+<li>atomic vector</li>
+<li>list</li>
+<li>matrix</li>
+<li>data frame</li>
+<li>factors</li>
+</ul>
+<div id="vectors" class="section level2">
+<h2><span class="header-section-number">2.1</span> Vectors</h2>
+<p>A vector is the most common and basic data structure in R and is pretty much the workhorse of R. Technically, vectors can be one of two types:</p>
+<ul>
+<li>atomic vectors</li>
+<li>lists</li>
+</ul>
+<p>although the term “vector” most commonly refers to the atomic types not to lists.</p>
+<div id="the-different-vector-modes" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> The Different Vector Modes</h3>
+<p>A vector is a collection of elements that are most commonly of mode <code>character</code>, <code>logical</code>, <code>integer</code> or <code>numeric</code>.</p>
+<p>You can create an empty vector with <code>vector()</code>. (By default the mode is <code>logical</code>. You can be more explicit as shown in the examples below.) It is more common to use direct constructors such as <code>character()</code>, <code>numeric()</code>, etc.</p>
+<pre class="r"><code>vector() # an empty &#39;logical&#39; (the default) vector</code></pre>
+<pre><code>## logical(0)</code></pre>
+<pre class="r"><code>vector(&quot;character&quot;, length = 5) # a vector of mode &#39;character&#39; with 5 elements</code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<pre class="r"><code>character(5) # the same thing, but using the constructor directly</code></pre>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<pre class="r"><code>numeric(5)   # a numeric vector with 5 elements</code></pre>
+<pre><code>## [1] 0 0 0 0 0</code></pre>
+<pre class="r"><code>logical(5)   # a logical vector with 5 elements</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>You can also create vectors by directly specifying their content. R will then guess the appropriate mode of storage for the vector. For instance:</p>
+<pre class="r"><code>x &lt;- c(1, 2, 3)</code></pre>
+<p>will create a vector <code>x</code> of mode <code>numeric</code>. These are the most common kind, and are treated as double precision real numbers. If you wanted to explicitly create integers, you need to add an <code>L</code> to each element (or <em>coerce</em> to the integer type using <code>as.integer()</code>).</p>
+<pre class="r"><code>x1 &lt;- c(1L, 2L, 3L)</code></pre>
+<p>Using <code>TRUE</code> and <code>FALSE</code> will create a vector of mode <code>logical</code>:</p>
+<pre class="r"><code>y &lt;- c(TRUE, TRUE, FALSE, FALSE)</code></pre>
+<p>While using quoted text will create a vector of mode <code>character</code>:</p>
+<pre class="r"><code>z &lt;- c(&quot;Sarah&quot;, &quot;Tracy&quot;, &quot;Jon&quot;)</code></pre>
+</div>
+<div id="examining-vectors" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Examining Vectors</h3>
+<p>The functions <code>typeof()</code>, <code>length()</code>, <code>class()</code> and <code>str()</code> provide useful information about your vectors and R objects in general.</p>
+<pre class="r"><code>typeof(z)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>length(z)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>class(z)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>str(z)</code></pre>
+<pre><code>##  chr [1:3] &quot;Sarah&quot; &quot;Tracy&quot; &quot;Jon&quot;</code></pre>
+</div>
+<div id="adding-elements" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Adding Elements</h3>
+<p>The function <code>c()</code> (for combine) can also be used to add elements to a vector.</p>
+<pre class="r"><code>z &lt;- c(z, &quot;Annette&quot;)
+z</code></pre>
+<pre><code>## [1] &quot;Sarah&quot;   &quot;Tracy&quot;   &quot;Jon&quot;     &quot;Annette&quot;</code></pre>
+<pre class="r"><code>z &lt;- c(&quot;Greg&quot;, z)
+z</code></pre>
+<pre><code>## [1] &quot;Greg&quot;    &quot;Sarah&quot;   &quot;Tracy&quot;   &quot;Jon&quot;     &quot;Annette&quot;</code></pre>
+</div>
+<div id="vectors-from-a-sequence-of-numbers" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Vectors from a Sequence of Numbers</h3>
+<p>You can create vectors as a sequence of numbers.</p>
+<pre class="r"><code>series &lt;- 1:10
+seq(10)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code>seq(from = 1, to = 10, by = 0.1)</code></pre>
+<pre><code>##  [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3
+## [15]  2.4  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7
+## [29]  3.8  3.9  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1
+## [43]  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5
+## [57]  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9
+## [71]  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3
+## [85]  9.4  9.5  9.6  9.7  9.8  9.9 10.0</code></pre>
+</div>
+<div id="missing-data" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Missing Data</h3>
+<p>R supports missing data in vectors. They are represented as <code>NA</code> (Not Available) and can be used for all the vector types covered in this lesson:</p>
+<pre class="r"><code>x &lt;- c(0.5, NA, 0.7)
+x &lt;- c(TRUE, FALSE, NA)
+x &lt;- c(&quot;a&quot;, NA, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)
+x &lt;- c(1+5i, 2-3i, NA)</code></pre>
+<p>The function <code>is.na()</code> indicates the elements of the vectors that represent missing data, and the function <code>anyNA()</code> returns <code>TRUE</code> if the vector contains any missing values:</p>
+<pre class="r"><code>x &lt;- c(&quot;a&quot;, NA, &quot;c&quot;, &quot;d&quot;, NA)
+y &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)
+is.na(x)</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+<pre class="r"><code>is.na(y)</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<pre class="r"><code>anyNA(x)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>anyNA(y)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="other-special-values" class="section level3">
+<h3><span class="header-section-number">2.1.6</span> Other Special Values</h3>
+<p><code>Inf</code> is infinity. You can have either positive or negative infinity.</p>
+<pre class="r"><code>1/0</code></pre>
+<pre><code>## [1] Inf</code></pre>
+<p><code>NaN</code> means Not a Number. It’s an undefined value.</p>
+<pre class="r"><code>0/0</code></pre>
+<pre><code>## [1] NaN</code></pre>
+</div>
+<div id="what-happens-when-you-mix-types-inside-a-vector" class="section level3">
+<h3><span class="header-section-number">2.1.7</span> What Happens When You Mix Types Inside a Vector?</h3>
+<p>R will create a resulting vector with a mode that can most easily accommodate all the elements it contains. This conversion between modes of storage is called “coercion”. When R converts the mode of storage based on its content, it is referred to as “implicit coercion”. For instance, can you guess what the following do (without running them first)?</p>
+<pre class="r"><code>xx &lt;- c(1.7, &quot;a&quot;)
+xx &lt;- c(TRUE, 2)
+xx &lt;- c(&quot;a&quot;, TRUE)</code></pre>
+<p>You can also control how vectors are coerced explicitly using the <code>as.&lt;class_name&gt;()</code> functions:</p>
+<pre class="r"><code>as.numeric(&quot;1&quot;)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>as.character(1:2)</code></pre>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot;</code></pre>
+<blockquote>
+<p><strong>Finding Commonalities</strong></p>
+<p>Do you see a property that’s common to all these vectors above?</p>
+<blockquote>
+<p><strong>Solution</strong><br />
+All vectors are one-dimensional and each element is of the same type.</p>
+</blockquote>
+</blockquote>
+</div>
+<div id="objects-attributes" class="section level3">
+<h3><span class="header-section-number">2.1.8</span> Objects Attributes</h3>
+<p>Objects can have <strong>attributes</strong>. Attributes are part of the object. These include:</p>
+<ul>
+<li>names</li>
+<li>dimnames</li>
+<li>dim</li>
+<li>class</li>
+<li>attributes (contain metadata)</li>
+</ul>
+<p>You can also glean other attribute-like information such as length (works on vectors and lists) or number of characters (for character strings).</p>
+<pre class="r"><code>length(1:10)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>nchar(&quot;Software Carpentry&quot;)</code></pre>
+<pre><code>## [1] 18</code></pre>
+</div>
+</div>
+<div id="matrix" class="section level2">
+<h2><span class="header-section-number">2.2</span> Matrix</h2>
+<p>In R matrices are an extension of the numeric or character vectors. They are not a separate type of object but simply an atomic vector with dimensions; the number of rows and columns. As with atomic vectors, the elements of a matrix must be of the same data type.</p>
+<pre class="r"><code>m &lt;- matrix(nrow = 2, ncol = 2)
+m</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]   NA   NA
+## [2,]   NA   NA</code></pre>
+<pre class="r"><code>dim(m)</code></pre>
+<pre><code>## [1] 2 2</code></pre>
+<p>You can check that matrices are vectors with a class attribute of <code>matrix</code> by using <code>class()</code> and <code>typeof()</code>.</p>
+<pre class="r"><code>m &lt;- matrix(c(1:3))
+class(m)</code></pre>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<pre class="r"><code>typeof(m)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>While <code>class()</code> shows that m is a matrix, <code>typeof()</code> shows that fundamentally the matrix is an integer vector.</p>
+<blockquote>
+<p><strong>Data types of matrix elements </strong></p>
+<p>Consider the following matrix:</p>
+<pre class="r"><code>FOURS &lt;- matrix(
+  c(4, 4, 4, 4),
+  nrow = 2,
+  ncol = 2)</code></pre>
+<p>Given that <code>typeof(FOURS[1])</code> returns <code>&quot;double&quot;</code>, what would you expect <code>typeof(FOURS)</code> to return? How do you know this is the case even without running this code?</p>
+<p><em>Hint</em> Can matrices be composed of elements of different data types?</p>
+<blockquote>
+<p><strong>Solution</strong><br />
+We know that <code>typeof(FOURS)</code> will also return <code>&quot;double&quot;</code> since matrices are made of elements of the same data type. Note that you could do something like <code>as.character(FOURS)</code> if you needed the elements of <code>FOURS</code> <em>as characters</em>.</p>
+</blockquote>
+</blockquote>
+<p>Matrices in R are filled column-wise.</p>
+<pre class="r"><code>m &lt;- matrix(1:6, nrow = 2, ncol = 3)</code></pre>
+<p>Other ways to construct a matrix</p>
+<pre class="r"><code>m      &lt;- 1:10
+dim(m) &lt;- c(2, 5)</code></pre>
+<p>This takes a vector and transforms it into a matrix with 2 rows and 5 columns.</p>
+<p>Another way is to bind columns or rows using <code>rbind()</code> and <code>cbind()</code> (“row bind” and “column bind”, respectively).</p>
+<pre class="r"><code>x &lt;- 1:3
+y &lt;- 10:12
+cbind(x, y)</code></pre>
+<pre><code>##      x  y
+## [1,] 1 10
+## [2,] 2 11
+## [3,] 3 12</code></pre>
+<pre class="r"><code>rbind(x, y)</code></pre>
+<pre><code>##   [,1] [,2] [,3]
+## x    1    2    3
+## y   10   11   12</code></pre>
+<p>You can also use the <code>byrow</code> argument to specify how the matrix is filled. From R’s own documentation:</p>
+<pre class="r"><code>mdat &lt;- matrix(c(1, 2, 3, 11, 12, 13),
+               nrow = 2,
+               ncol = 3,
+               byrow = TRUE)
+mdat</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]   11   12   13</code></pre>
+<p>Elements of a matrix can be referenced by specifying the index along each dimension (e.g. “row” and “column”) in single square brackets.</p>
+<pre class="r"><code>mdat[2, 3]</code></pre>
+<pre><code>## [1] 13</code></pre>
+</div>
+<div id="list" class="section level2">
+<h2><span class="header-section-number">2.3</span> List</h2>
+<p>In R lists act as containers. Unlike atomic vectors, the contents of a list are not restricted to a single mode and can encompass any mixture of data types. Lists are sometimes called generic vectors, because the elements of a list can by of any type of R object, even lists containing further lists. This property makes them fundamentally different from atomic vectors.</p>
+<p>A list is a special type of vector. Each element can be a different type.</p>
+<p>Create lists using <code>list()</code> or coerce other objects using <code>as.list()</code>. An empty list of the required length can be created using <code>vector()</code></p>
+<pre class="r"><code>x &lt;- list(1, &quot;a&quot;, TRUE, 1+4i)
+x</code></pre>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 1+4i</code></pre>
+<pre class="r"><code>x &lt;- vector(&quot;list&quot;, length = 5) # empty list
+length(x)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<p>The content of elements of a list can be retrieved by using double square brackets.</p>
+<pre class="r"><code>x[[1]]</code></pre>
+<pre><code>## NULL</code></pre>
+<p>Vectors can be coerced to lists as follows:</p>
+<pre class="r"><code>x &lt;- 1:10
+x &lt;- as.list(x)
+length(x)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<blockquote>
+<p><strong>Examining Lists </strong></p>
+<ol style="list-style-type: decimal">
+<li>What is the class of <code>x[1]</code>?</li>
+<li>What is the class of <code>x[[1]]</code>?</li>
+</ol>
+<blockquote>
+<p><strong>Solution</strong><br />
+1.</p>
+<pre><code>```r
+class(x[1])
+```
+
+```
+## [1] &quot;list&quot;
+```</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><pre class="r"><code>class(x[[1]])</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre></li>
+</ol>
+</blockquote>
+</blockquote>
+<p>Elements of a list can be named (i.e. lists can have the <code>names</code> attribute)</p>
+<pre class="r"><code>xlist &lt;- list(a = &quot;Karthik Ram&quot;, b = 1:10, data = head(iris))
+xlist</code></pre>
+<pre><code>## $a
+## [1] &quot;Karthik Ram&quot;
+## 
+## $b
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $data
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<pre class="r"><code>names(xlist)</code></pre>
+<pre><code>## [1] &quot;a&quot;    &quot;b&quot;    &quot;data&quot;</code></pre>
+<blockquote>
+<p><strong>Examining Named Lists </strong></p>
+<ol style="list-style-type: decimal">
+<li>What is the length of this object?</li>
+<li>What is its structure?</li>
+</ol>
+<blockquote>
+<p><strong>Solution</strong><br />
+1.</p>
+<pre><code>```r
+length(xlist)
+```
+
+```
+## [1] 3
+```</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><pre class="r"><code>str(xlist)</code></pre>
+<pre><code>## List of 3
+##  $ a   : chr &quot;Karthik Ram&quot;
+##  $ b   : int [1:10] 1 2 3 4 5 6 7 8 9 10
+##  $ data:&#39;data.frame&#39;:    6 obs. of  5 variables:
+##   ..$ Sepal.Length: num [1:6] 5.1 4.9 4.7 4.6 5 5.4
+##   ..$ Sepal.Width : num [1:6] 3.5 3 3.2 3.1 3.6 3.9
+##   ..$ Petal.Length: num [1:6] 1.4 1.4 1.3 1.5 1.4 1.7
+##   ..$ Petal.Width : num [1:6] 0.2 0.2 0.2 0.2 0.2 0.4
+##   ..$ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1</code></pre>
+{: .solution} {: .challenge} Lists can be extremely useful inside functions. Because the functions in R are able to return only a single object, you can “staple” together lots of different kinds of results into a single object that a function can return.</li>
+</ol>
+</blockquote>
+</blockquote>
+<p>A list does not print to the console like a vector. Instead, each element of the list starts on a new line.</p>
+<p>Elements are indexed by double brackets. Single brackets will still return a(nother) list. If the elements of a list are named, they can be referenced by the <code>$</code> notation (i.e. <code>xlist$data</code>).</p>
+</div>
+<div id="data-frame" class="section level2">
+<h2><span class="header-section-number">2.4</span> Data Frame</h2>
+<p>A data frame is a very important data type in R. It’s pretty much the <em>de facto</em> data structure for most tabular data and what we use for statistics.</p>
+<p>A data frame is a <em>special type of list</em> where every element of the list has same length (i.e. data frame is a “rectangular” list).</p>
+<p>Data frames can have additional attributes such as <code>rownames()</code>, which can be useful for annotating data, like <code>subject_id</code> or <code>sample_id</code>. But most of the time they are not used.</p>
+<p>Some additional information on data frames:</p>
+<ul>
+<li>Usually created by <code>read.csv()</code> and <code>read.table()</code>, i.e. when importing the data into R.</li>
+<li>Assuming all columns in a data frame are of same type, data frame can be converted to a matrix with data.matrix() (preferred) or as.matrix(). Otherwise type coercion will be enforced and the results may not always be what you expect.</li>
+<li>Can also create a new data frame with <code>data.frame()</code> function.</li>
+<li>Find the number of rows and columns with <code>nrow(dat)</code> and <code>ncol(dat)</code>, respectively.</li>
+<li>Rownames are often automatically generated and look like 1, 2, …, n. Consistency in numbering of rownames may not be honored when rows are reshuffled or subset.</li>
+</ul>
+<div id="creating-data-frames-by-hand" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Creating Data Frames by Hand</h3>
+<p>To create data frames by hand:</p>
+<pre class="r"><code>dat &lt;- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat</code></pre>
+<pre><code>##    id  x  y
+## 1   a  1 11
+## 2   b  2 12
+## 3   c  3 13
+## 4   d  4 14
+## 5   e  5 15
+## 6   f  6 16
+## 7   g  7 17
+## 8   h  8 18
+## 9   i  9 19
+## 10  j 10 20</code></pre>
+<blockquote>
+<p><strong>Useful Data Frame Functions </strong></p>
+<ul>
+<li><code>head()</code> - shows first 6 rows</li>
+<li><code>tail()</code> - shows last 6 rows</li>
+<li><code>dim()</code> - returns the dimensions of data frame (i.e. number of rows and number of columns)</li>
+<li><code>nrow()</code> - number of rows</li>
+<li><code>ncol()</code> - number of columns</li>
+<li><code>str()</code> - structure of data frame - name, type and preview of data in each column</li>
+<li><code>names()</code> or <code>colnames()</code> - both show the <code>names</code> attribute for a data frame</li>
+<li><code>sapply(dataframe, class)</code> - shows the class of each column in the data frame {: .callout} See that it is actually a special list:</li>
+</ul>
+</blockquote>
+<pre class="r"><code>is.list(dat)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>class(dat)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<p>Because data frames are rectangular, elements of data frame can be referenced by specifying the row and the column index in single square brackets (similar to matrix).</p>
+<pre class="r"><code>dat[1, 3]</code></pre>
+<pre><code>## [1] 11</code></pre>
+<p>As data frames are also lists, it is possible to refer to columns (which are elements of such list) using the list notation, i.e. either double square brackets or a <code>$</code>.</p>
+<pre class="r"><code>dat[[&quot;y&quot;]]</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
+<pre class="r"><code>dat$y</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20</code></pre>
+<p>The following table summarizes the one-dimensional and two-dimensional data structures in R in relation to diversity of data types they can contain.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Dimensions</th>
+<th>Homogenous</th>
+<th>Heterogeneous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1-D</td>
+<td>atomic vector</td>
+<td>list</td>
+</tr>
+<tr class="even">
+<td>2-D</td>
+<td>matrix</td>
+<td>data frame</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lists can contain elements that are themselves muti-dimensional (e.g. a lists can contain data frames or another type of objects). Lists can also contain elements of any length, therefore list do not necessarily have to be “rectangular”. However in order for the list to qualify as a data frame, the lenghth of each element has to be the same. {: .callout} <strong>Column Types in Data Frames </strong></p>
+<p>Knowing that data frames are lists, can columns be of different type?</p>
+<p>What type of structure do you expect to see when you explore the structure of the <code>iris</code> data frame? Hint: Use <code>str()</code>.</p>
+<blockquote>
+<p><strong>Solution</strong><br />
+The Sepal.Length, Sepal.Width, Petal.Length and Petal.Width columns are all numeric types, while Species is a Factor. Lists can have elements of different types. Since a Data Frame is just a special type of list, it can have columns of differing type (although, remember that type must be consistent within each column!).</p>
+<pre class="r"><code>str(iris)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</blockquote>
+</blockquote>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

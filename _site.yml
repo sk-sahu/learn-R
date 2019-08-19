@@ -7,6 +7,14 @@ navbar:
       href: index.html
     - text: "Introduction"
       href: intro.html
+    - text: "Session-1"
+      href: session1.html
 output:
   html_document:
-    theme: cosmo
+    theme: cerulean
+    toc: true
+    number_sections: true
+    toc_depth: 2
+    toc_float:
+      collapsed: true
+      #smooth_scroll: false 

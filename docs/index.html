@@ -10,16 +10,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Sangram" />
 
 
-<title>index page</title>
+<title>Basic R sessions for Biologist</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -249,6 +253,63 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -256,6 +317,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -278,6 +349,9 @@ $(document).ready(function () {
 <li>
   <a href="intro.html">Introduction</a>
 </li>
+<li>
+  <a href="session1.html">Session-1</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -290,15 +364,62 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">index page</h1>
+<h1 class="title toc-ignore">Basic R sessions for Biologist</h1>
+<h4 class="author">Sangram</h4>
+<h4 class="date">Last modified: 19 Aug 2019</h4>
 
 </div>
 
 
+<div id="course-description" class="section level1">
+<h1><span class="header-section-number">1</span> Course Description</h1>
+<p>This course provides an introduction to the R programming language and software environment for statistical computing and graphics. A variety of examples with a biological theme will be presented.</p>
+</div>
+<div id="prerequisites" class="section level1">
+<h1><span class="header-section-number">2</span> Prerequisites</h1>
+<p>No prior programming experience is required, but those attending should be able to use a plain text editor. A very basic knowledge of UNIX would be an advantage, but nothing will e assumed and extremely little will be required.</p>
+</div>
+<div id="objectives" class="section level1">
+<h1><span class="header-section-number">3</span> Objectives</h1>
+<p>After the course you should feel confident to start exploring your own dataset using the materials and references provided. Including things like:</p>
+<ul>
+<li>Import data and plot graphs</li>
+<li>Perform statistical tests in R</li>
+<li>Create a documented and reproducible piece of R code</li>
+<li>Know how to develop your skills in R after the course</li>
+<li>Install and use Bioconductor packages</li>
+</ul>
+</div>
+<div id="aims" class="section level1">
+<h1><span class="header-section-number">4</span> Aims</h1>
+<p>During this course you will learn about:</p>
+<ul>
+<li>The RStudio interface to R</li>
+<li>The many ways to access help about R</li>
+<li>Basic object types in R</li>
+<li>Importing tabular data into R</li>
+<li>Manipulating data in R</li>
+<li>Using in-built functions</li>
+<li>Statistical testing in R</li>
+<li>Executing basic data analysis workflows in R</li>
+<li>Basic Plotting</li>
+<li>Customizing plots</li>
+<li>Basic programming with if/else statements and for loops</li>
+<li>Creating reproducible reports in R</li>
+</ul>
+</div>
+<div id="course-structure" class="section level1">
+<h1><span class="header-section-number">5</span> Course Structure</h1>
+<hr />
+<p><strong>Credits:</strong> This matrials are combination of one or more resources listed bellow.<br />
+<a href="https://github.com/cambiotraining/r-intro">Cambridge Basic R Course</a><br />
+<a href="https://github.com/swcarpentry/r-novice-inflammation/">swcarpentry r-novice-inflammation</a></p>
+</div>
 
 
 
-
+</div>
+</div>
 
 </div>
 
@@ -331,6 +452,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
