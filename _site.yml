@@ -9,6 +9,8 @@ navbar:
       href: intro.html
     - text: "Session-1"
       href: session1.html
+    - text: "Session-2"
+      href: session2.html
 output:
   html_document:
     theme: cerulean

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Session-2</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Learn-R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="intro.html">Introduction</a>
+</li>
+<li>
+  <a href="session1.html">Session-1</a>
+</li>
+<li>
+  <a href="session2.html">Session-2</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Session-2</h1>
+
+</div>
+
+
+<div id="steps-to-basic-data-analysis" class="section level1">
+<h1><span class="header-section-number">1</span> Steps to Basic Data Analysis</h1>
+<ul>
+<li>In this short section, we show how the data manipulation steps we have just seen can be used as part of an analysis pipeline:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Reading in data
+<ul>
+<li><code>read.table()</code></li>
+<li><code>read.csv(), read.delim()</code></li>
+</ul></li>
+<li>Analysis
+<ul>
+<li>Manipulating &amp; reshaping the data
+<ul>
+<li>perhaps dealing with “missing data”</li>
+</ul></li>
+<li>Any maths you like</li>
+<li>Diagnostic Plots</li>
+</ul></li>
+<li>Writing out results
+<ul>
+<li><code>write.table()</code></li>
+<li><code>write.csv()</code></li>
+</ul></li>
+</ol>
+<div id="a-simple-walkthrough" class="section level2">
+<h2><span class="header-section-number">1.1</span> A simple walkthrough</h2>
+<ul>
+<li>We have data from 100 patients that given consent for their data to use in future studies</li>
+<li>A researcher wants to undertake a study involving people that are overweight</li>
+<li>We will walkthrough how to filter the data and write a new file with the candidates for the study</li>
+</ul>
+</div>
+<div id="the-working-directory-wd" class="section level2">
+<h2><span class="header-section-number">1.2</span> The Working Directory (wd)</h2>
+<ul>
+<li>Like many programs R has a concept of a working directory</li>
+<li>It is the place where R will look for files to execute and where it will save files, by default</li>
+<li>For this course we need to set the working directory to the location of the course scripts</li>
+<li><p>In RStudio use the mouse and browse to the directory where you saved the Course Materials</p></li>
+<li><p><strong><em>Session → Set Working Directory → Choose Directory…</em></strong></p></li>
+</ul>
+</div>
+<div id="locate-the-data" class="section level2">
+<h2><span class="header-section-number">1.3</span> Locate the data</h2>
+<p>Before we even start the analysis, we need to be sure of where the data are located on our hard drive</p>
+<ul>
+<li>Functions that import data need a file location as a character vector</li>
+<li>The default location is the <strong><em>working directory</em></strong></li>
+</ul>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;/home/sangram/Documents/work/Bionivid/learn-R&quot;</code></pre>
+<ul>
+<li>If the file you want to read is in your working directory, you can just use the file name</li>
+</ul>
+<pre class="r"><code>list.files()</code></pre>
+<ul>
+<li>The <code>file.exists</code> function does exactly what it says on the tin!
+<ul>
+<li>a good sanity check for your code</li>
+</ul></li>
+</ul>
+<pre class="r"><code>file.exists(&quot;data/patient-info.txt&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<ul>
+<li>Otherwise you need the <em>path</em> to the file
+<ul>
+<li>you can get this using <strong><code>file.choose()</code></strong></li>
+</ul></li>
+<li>If you unsure about specifying a file path at the command line, this <a href="http://rik.smith-unna.com/command_line_bootcamp/?id=vczhybjhtyt">online tutorial</a> will give you hands-on practice</li>
+</ul>
+</div>
+<div id="read-in-the-data" class="section level2">
+<h2><span class="header-section-number">1.4</span> Read in the data</h2>
+<ul>
+<li>The data are a tab-delimited file. Each row is a record, each column is a field. Columns are separated by tabs in the text</li>
+<li>We need to read in the results and assign it to an object (<code>patients</code>)</li>
+</ul>
+<pre class="r"><code>patients &lt;- read.delim(&quot;data/patient-info.txt&quot;)</code></pre>
+<p>In the latest RStudio, there is the option to import data directly from the File menu. <strong><em>File</em></strong> -&gt; <strong><em>Import Dataset</em></strong> -&gt; <strong><em>From Csv</em></strong></p>
+<ul>
+<li>If the data are comma-separated, then use either the argument <code>sep=&quot;,&quot;</code> or the function <code>read.csv()</code>:</li>
+<li>You need to make sure you use the correct function
+<ul>
+<li>can you explain the output of the following lines of code?</li>
+</ul></li>
+</ul>
+<pre class="r"><code>tmp &lt;- read.csv(&quot;data/patient-info.txt&quot;)
+head(tmp)</code></pre>
+<pre><code>##                           ID.Race.Sex.Smokes.Height.Weight.State.Pet.Grade.Age
+## 1       AC/AH/001\tWhite\tMale\tNon-Smoker\t182.87\t76.57\tGeorgia\tDog\t2\t85
+## 2      AC/AH/017\tWhite\tMale\tNon-Smoker\t179.12\t80.43\tMissouri\tDog\t2\t85
+## 3 AC/AH/020\tBlack\tMale\tNon-Smoker\t169.15\t75.48\tPennsylvania\tNone\t2\t47
+## 4       AC/AH/022\tWhite\tMale\tNon-Smoker\t175.66\t94.54\tFlorida\tCat\t1\t72
+## 5         AC/AH/029\tWhite\tFemale\tNon-Smoker\t164.47\t71.78\tIowa\tNA\t2\t70
+## 6            AC/AH/033\tNA\tFemale\tSmoker\t158.27\t69.9\tMaryland\tDog\t2\t66</code></pre>
+<ul>
+<li>For full list of arguments:</li>
+</ul>
+<pre class="r"><code>?read.table</code></pre>
+</div>
+<div id="check-the-data" class="section level2">
+<h2><span class="header-section-number">1.5</span> Check the data</h2>
+<ul>
+<li><em>Always</em> check the object to make sure the contents and dimensions are as you expect</li>
+<li>R will sometimes create the object without error, but the contents may be un-usable for analysis
+<ul>
+<li>If you specify an incorrect separator, R will not be able to locate the columns in your data, and you may end up with an object with just one column</li>
+</ul></li>
+</ul>
+<pre class="r"><code># View the first 10 rows to ensure import is OK
+patients[1:10,]  </code></pre>
+<pre><code>##           ID     Race    Sex     Smokes Height Weight          State  Pet
+## 1  AC/AH/001    White   Male Non-Smoker 182.87  76.57        Georgia  Dog
+## 2  AC/AH/017    White   Male Non-Smoker 179.12  80.43       Missouri  Dog
+## 3  AC/AH/020    Black   Male Non-Smoker 169.15  75.48   Pennsylvania None
+## 4  AC/AH/022    White   Male Non-Smoker 175.66  94.54        Florida  Cat
+## 5  AC/AH/029    White Female Non-Smoker 164.47  71.78           Iowa &lt;NA&gt;
+## 6  AC/AH/033     &lt;NA&gt; Female     Smoker 158.27  69.90       Maryland  Dog
+## 7  AC/AH/037    White Female Non-Smoker 161.69  68.85   Pennsylvania None
+## 8  AC/AH/044    White Female Non-Smoker 165.84  70.44 North Carolina None
+## 9  AC/AH/045    White   Male Non-Smoker 181.32  76.90      Louisiana  Dog
+## 10 AC/AH/048 Hispanic   Male Non-Smoker 167.37  79.06 North Carolina None
+##    Grade Age
+## 1      2  85
+## 2      2  85
+## 3      2  47
+## 4      1  72
+## 5      2  70
+## 6      2  66
+## 7      1  24
+## 8      1  68
+## 9      1  86
+## 10     2  63</code></pre>
+<ul>
+<li>or use the <code>View()</code> function to get a display of the data in RStudio:</li>
+</ul>
+<pre class="r"><code>View(patients)</code></pre>
+</div>
+<div id="understanding-the-object" class="section level2">
+<h2><span class="header-section-number">1.6</span> Understanding the object</h2>
+<ul>
+<li>Once we have read the data successfully, we can start to interact with it</li>
+<li>The object we have created is a <em>data frame</em>:</li>
+</ul>
+<pre class="r"><code>class(patients)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<ul>
+<li>We can query the dimensions:</li>
+</ul>
+<pre class="r"><code>ncol(patients)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>nrow(patients)</code></pre>
+<pre><code>## [1] 100</code></pre>
+<pre class="r"><code>dim(patients)</code></pre>
+<pre><code>## [1] 100  10</code></pre>
+<ul>
+<li>The names of the columns are automatically assigned:</li>
+</ul>
+<pre class="r"><code>colnames(patients)</code></pre>
+<pre><code>##  [1] &quot;ID&quot;     &quot;Race&quot;   &quot;Sex&quot;    &quot;Smokes&quot; &quot;Height&quot; &quot;Weight&quot; &quot;State&quot; 
+##  [8] &quot;Pet&quot;    &quot;Grade&quot;  &quot;Age&quot;</code></pre>
+<ul>
+<li>We can use any of these names to access a particular column:
+<ul>
+<li>and create a vector</li>
+<li>TOP TIP: type the name of the object and hit TAB: you can select the column from the drop-down list!</li>
+</ul></li>
+</ul>
+<pre class="r"><code>patients$ID</code></pre>
+<pre><code>##   [1] AC/AH/001 AC/AH/017 AC/AH/020 AC/AH/022 AC/AH/029 AC/AH/033 AC/AH/037
+##   [8] AC/AH/044 AC/AH/045 AC/AH/048 AC/AH/049 AC/AH/050 AC/AH/052 AC/AH/053
+##  [15] AC/AH/057 AC/AH/061 AC/AH/063 AC/AH/076 AC/AH/077 AC/AH/086 AC/AH/089
+##  [22] AC/AH/100 AC/AH/104 AC/AH/112 AC/AH/113 AC/AH/114 AC/AH/115 AC/AH/127
+##  [29] AC/AH/133 AC/AH/150 AC/AH/154 AC/AH/156 AC/AH/159 AC/AH/160 AC/AH/164
+##  [36] AC/AH/171 AC/AH/176 AC/AH/180 AC/AH/185 AC/AH/186 AC/AH/192 AC/AH/198
+##  [43] AC/AH/207 AC/AH/208 AC/AH/210 AC/AH/211 AC/AH/213 AC/AH/219 AC/AH/220
+##  [50] AC/AH/221 AC/AH/225 AC/AH/233 AC/AH/241 AC/AH/244 AC/AH/248 AC/AH/249
+##  [57] AC/SG/002 AC/SG/003 AC/SG/008 AC/SG/009 AC/SG/010 AC/SG/015 AC/SG/016
+##  [64] AC/SG/046 AC/SG/055 AC/SG/056 AC/SG/064 AC/SG/065 AC/SG/067 AC/SG/068
+##  [71] AC/SG/072 AC/SG/074 AC/SG/084 AC/SG/095 AC/SG/099 AC/SG/101 AC/SG/107
+##  [78] AC/SG/116 AC/SG/121 AC/SG/122 AC/SG/123 AC/SG/134 AC/SG/139 AC/SG/142
+##  [85] AC/SG/155 AC/SG/165 AC/SG/167 AC/SG/172 AC/SG/173 AC/SG/179 AC/SG/181
+##  [92] AC/SG/182 AC/SG/191 AC/SG/193 AC/SG/194 AC/SG/197 AC/SG/204 AC/SG/216
+##  [99] AC/SG/217 AC/SG/234
+## 100 Levels: AC/AH/001 AC/AH/017 AC/AH/020 AC/AH/022 AC/AH/029 ... AC/SG/234</code></pre>
+</div>
+<div id="word-of-warning" class="section level2">
+<h2><span class="header-section-number">1.7</span> Word of warning</h2>
+<p><img src="images/tolstoy.jpg" /></p>
+<p><img src="images/hadley.jpg" /></p>
+<blockquote>
+<p>Like families, tidy datasets are all alike but every messy dataset is messy in its own way - (Hadley Wickham - RStudio chief scientist and author of dplyr, ggplot2 and others) You will make your life a lot easier if you keep your data <strong>tidy</strong> and <strong><em>organised</em></strong>. Before blaming R, consider if your data are in a suitable form for analysis. The more manual manipulation you have done on the data (highlighting, formulas, copy-and-pasting), the less happy R is going to be to read it. Here are some useful links on some common pitfalls and how to avoid them</p>
+</blockquote>
+<ul>
+<li><a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/" class="uri">http://www.datacarpentry.org/spreadsheet-ecology-lesson/</a></li>
+<li><a href="http://kbroman.org/dataorg/" class="uri">http://kbroman.org/dataorg/</a></li>
+</ul>
+</div>
+<div id="handling-missing-values" class="section level2">
+<h2><span class="header-section-number">1.8</span> Handling missing values</h2>
+<ul>
+<li>The data frame contains some <strong><code>NA</code></strong> values, which means the values are missing – a common occurrence in real data collection</li>
+<li><code>NA</code> is a special value that can be present in objects of any type (logical, character, numeric etc)</li>
+<li><code>NA</code> is not the same as <code>NULL</code>:
+<ul>
+<li><code>NULL</code> is an empty R object.</li>
+<li><code>NA</code> is one missing value within an R object (like a data frame or a vector)</li>
+</ul></li>
+<li>Often R functions will handle <code>NA</code>s gracefully:</li>
+</ul>
+<pre class="r"><code>length(patients$Height)</code></pre>
+<pre><code>## [1] 100</code></pre>
+<pre class="r"><code>mean(patients$Height)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<ul>
+<li>However, sometimes we have to tell the functions what to do with them.</li>
+<li>R has some built-in functions for dealing with <code>NA</code>s, and functions often have their own arguments (like <code>na.rm</code>) for handling them:
+<ul>
+<li>annoyingly, different functions have different argument names to change their behaviour with regards to <code>NA</code> values. <em>Always check the documentation</em></li>
+</ul></li>
+</ul>
+<pre class="r"><code>mean(patients$Height, na.rm = TRUE)</code></pre>
+<pre><code>## [1] 167.4969</code></pre>
+<pre class="r"><code>mean(na.omit(patients$Height))</code></pre>
+<pre><code>## [1] 167.4969</code></pre>
+</div>
+<div id="analysis-reshaping-data-and-maths" class="section level2">
+<h2><span class="header-section-number">1.9</span> Analysis (reshaping data and maths)</h2>
+<ul>
+<li>Our analysis involves identifying patients with extreme BMI
+<ul>
+<li>we will define this as being two standard deviations from the mean</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Create an index of results:
+BMI &lt;- (patients$Weight)/((patients$Height/100)^2)
+upper.limit &lt;- mean(BMI,na.rm = TRUE) + 2*sd(BMI,na.rm = TRUE)
+upper.limit</code></pre>
+<pre><code>## [1] 30.9533</code></pre>
+<ul>
+<li>We can plot a simple chart of the BMI values
+<ul>
+<li>add a vertical line to indicate the cut-off</li>
+<li>plotting will be covered in detail shortly..</li>
+</ul></li>
+</ul>
+<pre class="r"><code>plot(BMI)
+# Add a horizonal line:
+abline(h=upper.limit) </code></pre>
+<p><img src="session2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<ul>
+<li>It is also useful to save the variable we have computed as a new column in the data frame</li>
+</ul>
+<pre class="r"><code>round(BMI,1)</code></pre>
+<pre><code>##   [1] 22.9 25.1 26.4 30.6 26.5 27.9 26.3 25.6 23.4 28.2 28.2   NA 30.0 27.9
+##  [15] 24.5 22.0 25.6 31.5 23.8   NA 23.5 26.7 31.4   NA 24.6   NA 24.8 29.2
+##  [29]   NA 24.1 25.1 28.0 29.4 28.2 23.6 26.4   NA 25.0 27.7 27.0 25.6 26.7
+##  [43] 24.5 26.1 23.1 28.2 26.9   NA 25.4 25.9   NA 24.8 28.2   NA 30.4 26.8
+##  [57] 26.0 25.2 26.9 31.7 25.6   NA 26.7 27.8 28.4   NA 31.5 27.0 30.0 26.5
+##  [71] 25.2   NA 26.7 25.8   NA 27.6 29.1 26.6 26.6 26.9 27.6 26.4 27.8   NA
+##  [85] 27.8 25.8 27.7 28.7 24.2 24.6 28.3 24.8 27.8 21.4 28.0 26.0 26.2 26.4
+##  [99] 27.7   NA</code></pre>
+<pre class="r"><code>patients$BMI &lt;- round(BMI,1)
+head(patients)</code></pre>
+<pre><code>##          ID  Race    Sex     Smokes Height Weight        State  Pet Grade
+## 1 AC/AH/001 White   Male Non-Smoker 182.87  76.57      Georgia  Dog     2
+## 2 AC/AH/017 White   Male Non-Smoker 179.12  80.43     Missouri  Dog     2
+## 3 AC/AH/020 Black   Male Non-Smoker 169.15  75.48 Pennsylvania None     2
+## 4 AC/AH/022 White   Male Non-Smoker 175.66  94.54      Florida  Cat     1
+## 5 AC/AH/029 White Female Non-Smoker 164.47  71.78         Iowa &lt;NA&gt;     2
+## 6 AC/AH/033  &lt;NA&gt; Female     Smoker 158.27  69.90     Maryland  Dog     2
+##   Age  BMI
+## 1  85 22.9
+## 2  85 25.1
+## 3  47 26.4
+## 4  72 30.6
+## 5  70 26.5
+## 6  66 27.9</code></pre>
+<ul>
+<li>To actually select the candidates we can use a logical expression to test the values of the BMI vector being greater than the upper limit
+<ul>
+<li>if the second line looks a bit weird, remember that <code>&lt;-</code> is doing an assignment. Thevalue we are assigning to our new variable is the logical (<code>TRUE</code> or <code>FALSE</code>) vector given by testing each item in <code>BMI</code> against the <code>upper.limit</code></li>
+</ul></li>
+</ul>
+<pre class="r"><code>BMI &gt; upper.limit</code></pre>
+<pre><code>##   [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [12]    NA FALSE FALSE FALSE FALSE FALSE  TRUE FALSE    NA FALSE FALSE
+##  [23]  TRUE    NA FALSE    NA FALSE FALSE    NA FALSE FALSE FALSE FALSE
+##  [34] FALSE FALSE FALSE    NA FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [45] FALSE FALSE FALSE    NA FALSE FALSE    NA FALSE FALSE    NA FALSE
+##  [56] FALSE FALSE FALSE FALSE  TRUE FALSE    NA FALSE FALSE FALSE    NA
+##  [67]  TRUE FALSE FALSE FALSE FALSE    NA FALSE FALSE    NA FALSE FALSE
+##  [78] FALSE FALSE FALSE FALSE FALSE FALSE    NA FALSE FALSE FALSE FALSE
+##  [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [100]    NA</code></pre>
+<pre class="r"><code>candidates &lt;- BMI &gt; upper.limit</code></pre>
+<p>We have seen that a logical vector can be used to subset a data frame</p>
+<ul>
+<li>However, in our case the result looks a bit funny</li>
+<li>Can you think why this might be?</li>
+</ul>
+<pre class="r"><code>patients[candidates,]</code></pre>
+<pre><code>##              ID  Race  Sex     Smokes Height Weight     State  Pet Grade
+## NA         &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## 18    AC/AH/076 White Male Non-Smoker 176.22  97.67 Louisiana  Cat     2
+## NA.1       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## 23    AC/AH/104 White Male     Smoker 169.85  90.63  Kentucky None     1
+## NA.2       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.3       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.4       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.5       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.6       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.7       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.8       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## 60    AC/SG/009 White Male Non-Smoker 166.84  88.25   Vermont  Dog     1
+## NA.9       &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.10      &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## 67    AC/SG/064 White Male Non-Smoker 169.16  90.08  Illinois  Cat     2
+## NA.11      &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.12      &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.13      &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+## NA.14      &lt;NA&gt;  &lt;NA&gt; &lt;NA&gt;       &lt;NA&gt;     NA     NA      &lt;NA&gt; &lt;NA&gt;    NA
+##       Age  BMI
+## NA     NA   NA
+## 18     26 31.5
+## NA.1   NA   NA
+## 23     87 31.4
+## NA.2   NA   NA
+## NA.3   NA   NA
+## NA.4   NA   NA
+## NA.5   NA   NA
+## NA.6   NA   NA
+## NA.7   NA   NA
+## NA.8   NA   NA
+## 60     43 31.7
+## NA.9   NA   NA
+## NA.10  NA   NA
+## 67     44 31.5
+## NA.11  NA   NA
+## NA.12  NA   NA
+## NA.13  NA   NA
+## NA.14  NA   NA</code></pre>
+<p>The <code>which</code> function will take a logical vector and return the indices of the <code>TRUE</code> values</p>
+<ul>
+<li>This can then be used to subset the data frame</li>
+</ul>
+<pre class="r"><code>which(BMI &gt; upper.limit)</code></pre>
+<pre><code>## [1] 18 23 60 67</code></pre>
+<pre class="r"><code>candidates &lt;- which(BMI &gt; upper.limit)</code></pre>
+</div>
+<div id="outputting-the-results" class="section level2">
+<h2><span class="header-section-number">1.10</span> Outputting the results</h2>
+<ul>
+<li>We write out a data frame of candidates (patients with BMI more than standard deviations from the mean) as a ‘comma separated values’ text file (CSV):</li>
+</ul>
+<pre class="r"><code>write.csv(patients[candidates,], file=&quot;selectedSamples.csv&quot;)</code></pre>
+<ul>
+<li>The output file is directly-readable by Excel</li>
+<li>It’s often helpful to double check where the data has been saved. Use the <em>get working directory</em> function:</li>
+</ul>
+<pre class="r"><code>getwd()      # print working directory
+list.files() # list files in working directory</code></pre>
+<p>To recap, the set of R commands we have used is:-</p>
+<pre class="r"><code>patients &lt;- read.delim(&quot;data/patient-info.txt&quot;)
+BMI &lt;- (patients$Weight)/((patients$Height/100)^2)
+upper.limit &lt;- mean(BMI,na.rm = TRUE) + 2*sd(BMI,na.rm = TRUE)
+plot(BMI)
+# Add a horizonal line:
+abline(h=upper.limit) </code></pre>
+<p><img src="session2_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<pre class="r"><code>patients$BMI &lt;- round(BMI,1)
+candidates &lt;- which(BMI &gt; upper.limit)
+write.csv(patients[candidates,], file=&quot;selectedSamples.csv&quot;)</code></pre>
+</div>
+<div id="exercise-exercise-3" class="section level2">
+<h2><span class="header-section-number">1.11</span> Exercise: Exercise 3</h2>
+<ul>
+<li>A separate study is looking for patients that are underweight and also smoke;
+<ul>
+<li>Modify the condition in our previous code to find these patients</li>
+<li>e.g. having BMI that is 2 standard deviations <em>less</em> than the mean BMI</li>
+<li>Write out a results file of the samples that match these criteria, and open it in a spreadsheet program</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
