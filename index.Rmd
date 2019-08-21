@@ -41,8 +41,10 @@ During this course you will learn about:
 # Course Structure
 
 
-***
-**Credits:**
-This matrials are combination of one or more resources listed bellow.  
-[Cambridge Basic R Course](https://github.com/cambiotraining/r-intro)  
-[swcarpentry r-novice-inflammation](https://github.com/swcarpentry/r-novice-inflammation/)  
+# Resources:
+This matrials are combination of one or more resources listed bellow.[^1][^2][^3]  
+
+[^1]: [Cambridge Basic R Course](https://github.com/cambiotraining/r-intro)  
+[^2]: [swcarpentry r-novice-inflammation](https://github.com/swcarpentry/r-novice-inflammation/)
+[^3]: few others
+  
