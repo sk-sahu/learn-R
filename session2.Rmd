@@ -104,7 +104,7 @@ patients[1:10,]
 
 
 - or use the `View()` function to get a display of the data in RStudio:
-```{r}
+```{r, eval=FALSE}
 View(patients)
 ```
 
@@ -176,7 +176,7 @@ mean(patients$Height, na.rm = TRUE)
 mean(na.omit(patients$Height))
 ```
 
-## Analysis (reshaping data and maths)
+## Analysis
 
 - Our analysis involves identifying patients with extreme BMI
     + we will define this as being two standard deviations from the mean
@@ -239,7 +239,7 @@ candidates <- which(BMI > upper.limit)
 - We write out a data frame of candidates (patients with BMI more than standard deviations from the mean) as a 'comma separated values' text file (CSV):
 
 ```{r}
-write.csv(patients[candidates,], file="selectedSamples.csv")
+write.csv(patients[candidates,], file="outputs/selectedSamples.csv")
 ```
 
 - The output file is directly-readable by Excel
@@ -262,7 +262,7 @@ plot(BMI)
 abline(h=upper.limit) 
 patients$BMI <- round(BMI,1)
 candidates <- which(BMI > upper.limit)
-write.csv(patients[candidates,], file="selectedSamples.csv")
+write.csv(patients[candidates,], file="outputs/selectedSamples.csv")
 ```
 
 ## Exercise: Exercise 3

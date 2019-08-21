@@ -11,12 +11,16 @@ navbar:
       href: session1.html
     - text: "Session-2"
       href: session2.html
+    - text: "Session-3"
+      href: session3.html
 output:
   html_document:
+    includes:
+          after_body: footer.html
     theme: cerulean
     toc: true
     number_sections: true
     toc_depth: 2
     toc_float:
-      collapsed: true
+      collapsed: false
       #smooth_scroll: false 
