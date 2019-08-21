@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 In order to update our function to decide between saving or not, we need to write code that automatically decides between multiple options.
 The tool R gives us for doing this is called a conditional statement, and looks like this:
 
+<div class="fold o">
 ```{r, results='hold'}
 num <- 37
 if (num > 100) {
@@ -22,6 +23,7 @@ if (num > 100) {
 }
 print("done")
 ```
+</div>
 
 The second line of this code uses an `if` statement to tell R that we want to make a choice.
 If the following test is true, the body of the `if` (i.e., the lines in the curly braces underneath it) are executed.
@@ -32,9 +34,11 @@ flowchat
 
 In the example above, the test `num > 100` returns the value `FALSE`, which is why the code inside the `if` block was skipped and the code inside the `else` statement was run instead.
 
+<div class="fold o">
 ```{r}
 num > 100
 ```
+</div>
 
 And as you likely guessed, the opposite of `FALSE` is `TRUE`.
 
@@ -231,7 +235,7 @@ Real-life functions will usually be larger than the ones shown here--typically h
 >                    # with one element.
 > highlight(best_practice, asterisk)
 > ```
->
+> <div class="fold o">
 > > ## Solution
 > > ~~~
 > > highlight <- function(content, wrapper) {
@@ -239,6 +243,8 @@ Real-life functions will usually be larger than the ones shown here--typically h
 > >   return(answer)
 > > }
 > > ~~~
+> </div>
+
 > > {: .language-r}
 > {: .solution}
 >

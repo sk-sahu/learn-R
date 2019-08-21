@@ -16,7 +16,9 @@ navbar:
 output:
   html_document:
     includes:
+          before_body: before_body.html
           after_body: footer.html
+    css: sessions.css
     theme: cerulean
     toc: true
     number_sections: true
