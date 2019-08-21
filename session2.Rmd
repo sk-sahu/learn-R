@@ -88,7 +88,7 @@ tmp <- read.csv("data/patient-info.txt")
 head(tmp)
 ```
 - For full list of arguments:
-```{r}
+```{r, eval=FALSE}
 ?read.table
 ```
 
