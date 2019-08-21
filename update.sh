@@ -1,16 +1,19 @@
 #!/bin/bash
 
-# Arguments default
-use_flag='no msg'
 
+# print_usage function
 print_usage() {
   printf "Usage: bash update.sh -m 'message for commit' \n\n"
   printf "    -m: message for commit \n\n"
 }
 
+# Arguments default
+msg_flag='no_msg'
+
+# get arguments
 while getopts 'm:' flag; do
   case "${flag}" in
-  m) use_flag="${OPTARG}" ;;
+  m) msg_flag="${OPTARG}";;
   *)
     print_usage
     exit 1
@@ -18,7 +21,10 @@ while getopts 'm:' flag; do
   esac
 done
 
-RScript render_rmd2html.R
+#echo $msg_flag
+
+Rscript ./render_rmd2html.R
 
 git add .
-git commit -m commit 
+git commit -m $msg_flag
+git push
