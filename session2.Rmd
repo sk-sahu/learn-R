@@ -87,6 +87,7 @@ In the latest RStudio, there is the option to import data directly from the File
 tmp <- read.csv("data/patient-info.txt")
 head(tmp)
 ```
+
 - For full list of arguments:
 ```{r, eval=FALSE}
 ?read.table

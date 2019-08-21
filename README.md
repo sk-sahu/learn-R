@@ -1,2 +1,5 @@
 # learn-R
-Materials to learn R focused on Lab Biologists (complete newbies)
+
+Materials to learn R focused on Lab Biologists.
+
+https://sk-sahu.github.io/learn-R/
