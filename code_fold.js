@@ -1,3 +1,5 @@
+// https://stackoverflow.com/questions/37755037/how-to-add-code-folding-to-output-chunks-in-rmarkdown-html-documents
+
 $(document).ready(function() {
 
   $chunks = $('.fold');

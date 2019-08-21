@@ -20,6 +20,7 @@ output:
           after_body: footer.html
     css: sessions.css
     theme: cerulean
+    highlight: tango
     toc: true
     number_sections: true
     toc_depth: 2
