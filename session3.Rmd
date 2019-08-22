@@ -3,17 +3,24 @@ title: "Session-3"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
 ```
 
 # Programming in R
 
-## Conditionals
+Till this moment we were calling each built-in function and exicuting mostly in single lines.
+Now Let's do some reals programming, which will include:
 
-In order to update our function to decide between saving or not, we need to write code that automatically decides between multiple options.
-The tool R gives us for doing this is called a conditional statement, and looks like this:
+  * Conditional Statements
+  * Looping
+  * Functions
 
-<div class="fold o">
+## Conditional Statements
+
+Sometimes we needs to take dessions based on condition(s).
+
+In programing languages for doing this is called a conditional statement, and looks like this:
+
 ```{r, results='hold'}
 num <- 37
 if (num > 100) {
@@ -23,22 +30,19 @@ if (num > 100) {
 }
 print("done")
 ```
-</div>
 
 The second line of this code uses an `if` statement to tell R that we want to make a choice.
 If the following test is true, the body of the `if` (i.e., the lines in the curly braces underneath it) are executed.
 If the test is false, the body of the `else` is executed instead.
 Only one or the other is ever executed:
 
-flowchat
+![img: if-else](images/If-Then-Else-diagram.svg)
 
 In the example above, the test `num > 100` returns the value `FALSE`, which is why the code inside the `if` block was skipped and the code inside the `else` statement was run instead.
 
-<div class="fold o">
 ```{r}
 num > 100
 ```
-</div>
 
 And as you likely guessed, the opposite of `FALSE` is `TRUE`.
 
@@ -56,36 +60,38 @@ if (num < 100) {
 }
 ```
 
-We can also chain several tests together when there are more than two options.
-This makes it simple to write a function that returns the sign of a number:
-
+<div class = "exercise">
+<div class="fold s o">
+**Exercise-1**  
+Write a if-else condition statement to find if a number is even or odd.  
+**Soultion**  
 ```{r}
-sign <- function(num) {
-  if (num > 0) {
-    return(1)
-  } else if (num == 0) {
-    return(0)
-  } else {
-    return(-1)
-  }
+num <- 34
+if(num%%2 == 0){
+  print("Number is even")
+} else {
+  print("Number is odd")
 }
-sign(-3)
-sign(0)
-sign(2/3)
 ```
 
-Note that when combining `else` and `if` in an `else if` statement, the `if` portion still requires a direct input condition.  This is never the case for the `else` statement alone, which is only executed if all other conditions go unsatisfied.
-Note that the test for equality uses two equal signs, `==`.
+**Exercise-2**  
+Write a if-else condition statement to find if a number is positive.  
+**Solution**  
+```{r}
+x <- 5
+if(x > 0){
+print("Positive number")
+}
+```
+</div>
+</div>
 
-> **Other Comparisons**
+> **Note**  
 >
-> Other tests include greater than or equal to (`>=`), less than or equal to
-> (`<=`), and not equal to (`!=`).
-{: .callout}
-We can also combine tests.
-Two ampersands, `&&`, symbolize "and".
-Two vertical bars, `||`, symbolize "or".
-`&&` is only true if both parts are true:
+The test for equality uses two equal signs, `==`.
+Other tests include greater than or equal to (`>=`), less than or equal to (`<=`), and not equal to (`!=`).
+We can also combine tests. Two ampersands, `&&`, symbolize "and". Two vertical bars, `||`, symbolize "or". `&&` is only true if both parts are true.
+  
 
 ```{r}
 if (1 > 0 && -1 > 0) {
@@ -109,6 +115,10 @@ In this case, "either" means "either or both", not "either one or the other but 
 
 ## Looping
 
+In computer programming, a loop is a sequence of instructions that is continually repeated until a certain condition is reached.
+
+![img: looping](images/for-loop.png)
+
 - R has two basic types of loop
     + a **`for`** loop: run some code on every value in a vector
     + a **`while`** loop: run some code while some condition is true (*hardly ever used!*)
@@ -130,6 +140,20 @@ while(i <= 10 ) {
   i <- i + 1
   }
 ```
+
+<div class = "exercise">
+<div class="fold s o">
+**Exercise-1**  
+Write a for loop to sum all numbers in between 1 to 10.
+**Soultion**  
+```{r}
+sum <- 0 # initialize sum is zero
+for(n in 1:10){
+  sum <- sum + n
+}
+print(sum)
+```
+</div></div>
 
 ## Functions
 
@@ -156,6 +180,7 @@ The statements in the body are indented by two spaces, which makes the code easi
 When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function.
 Inside the function, we use a return statement to send a result back to whoever asked for it.
 
+
 > ## Automatic Returns
 >
 > In R, it is not necessary to include the return statement.
@@ -164,6 +189,7 @@ Inside the function, we use a return statement to send a result back to whoever 
 > return statement.
 Let's try running our function.
 Calling our own function is no different from calling any other function:
+
 
 ```{r}
 # freezing point of water
