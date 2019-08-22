@@ -25,6 +25,6 @@ done
 
 Rscript ./render_rmd2html.R
 
-git add .
+git add --all
 git commit -m $msg_flag
 git push

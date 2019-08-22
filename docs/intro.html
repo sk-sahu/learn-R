@@ -1611,6 +1611,9 @@ div.tocify {
 <li>
   <a href="session3.html">Session-3</a>
 </li>
+<li>
+  <a href="extra.html">Extra</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -1763,17 +1766,15 @@ $(document).ready(function() {
 </div>
 <div id="getting-started" class="section level1">
 <h1><span class="header-section-number">6</span> Getting started</h1>
+<p>R can be done/executed using command line, or a graphical user interface (GUI). On this course, we use the RStudio GUI. Lets download required files and install.</p>
+<ol style="list-style-type: decimal">
+<li>Get latest version of R from <a href="https://cran.r-project.org/">CRAN</a>
 <ul>
-<li>Latest release 3.3.2 (October 2016)
-<ul>
-<li>Base package and Contributed packages (general purpose extras)</li>
-<li>14802 available packages as of Thu Aug 22 21:00:43 2019</li>
+<li>This will come will some base packages installed for general tasks.</li>
+<li>We can also download additional required packages from CRAN for specific tasks, Currently 14802 available packages as of Fri Aug 23 00:46:07 2019</li>
 </ul></li>
-<li>Download from <a href="http://mirrors.ebi.ac.uk/CRAN/" class="uri">http://mirrors.ebi.ac.uk/CRAN/</a></li>
-<li>Windows, Mac and Linux versions available</li>
-<li>Executed using command line, or a graphical user interface (GUI)</li>
-<li>On this course, we use the RStudio GUI (www.rstudio.com)</li>
-</ul>
+<li>Download RStudio from <a href="https://www.rstudio.com/products/rstudio/download/#download">here</a></li>
+</ol>
 <div class="figure">
 <img src="data:image/png;base64,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" alt="rstudio" />
 <p class="caption">rstudio</p>
@@ -1789,8 +1790,9 @@ $(document).ready(function() {
 <hr />
 
 <p style="text-align: right;"> Created and Maintained by <a href="https://sk-sahu.github.io/">Sangram Keshari Sahu</a>
-<br />Source Code <a href="https://github.com/sk-sahu/learn-r">At GitHub</a>
 <br />Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+<br />Source Code <a href="https://github.com/sk-sahu/learn-r">At GitHub</a>
+<br />Template used from <a href="https://sk-sahu.github.io/Rmplates/">Rmdplates package</a>
 </p>
 
 <!--

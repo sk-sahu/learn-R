@@ -13,6 +13,8 @@ navbar:
       href: session2.html
     - text: "Session-3"
       href: session3.html
+    - text: "Extra"
+      href: extra.html
 output:
   html_document:
     includes:

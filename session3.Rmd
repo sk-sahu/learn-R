@@ -60,11 +60,12 @@ if (num < 100) {
 }
 ```
 
-<div class = "exercise">
-<div class="fold s o">
-**Exercise-1**  
-Write a if-else condition statement to find if a number is even or odd.  
-**Soultion**  
+<div class = "exercise fold s o">
+**Exercise-1**
+
+Write a if-else condition statement to find if a number is even or odd.
+
+**Soultion**
 ```{r}
 num <- 34
 if(num%%2 == 0){
@@ -74,16 +75,17 @@ if(num%%2 == 0){
 }
 ```
 
-**Exercise-2**  
-Write a if-else condition statement to find if a number is positive.  
-**Solution**  
+**Exercise-2**
+
+Write a if-else condition statement to find if a number is positive.
+
+**Solution**
 ```{r}
 x <- 5
 if(x > 0){
 print("Positive number")
 }
 ```
-</div>
 </div>
 
 > **Note**  
@@ -141,11 +143,12 @@ while(i <= 10 ) {
   }
 ```
 
-<div class = "exercise">
-<div class="fold s o">
-**Exercise-1**  
+<div class = "exercise fold s o">
+**Exercise-1**
+
 Write a for loop to sum all numbers in between 1 to 10.
-**Soultion**  
+
+**Soultion**
 ```{r}
 sum <- 0 # initialize sum is zero
 for(n in 1:10){
@@ -153,7 +156,7 @@ for(n in 1:10){
 }
 print(sum)
 ```
-</div></div>
+</div>
 
 ## Functions
 
@@ -181,15 +184,15 @@ When we call the function, the values we pass to it are assigned to those variab
 Inside the function, we use a return statement to send a result back to whoever asked for it.
 
 
-> ## Automatic Returns
+> **Automatic Returns**
 >
-> In R, it is not necessary to include the return statement.
-> R automatically returns whichever variable is on the last line of the body
-> of the function. While in the learning phase, we will explicitly define the
-> return statement.
+In R, it is not necessary to include the return statement.
+R automatically returns whichever variable is on the last line of the body
+of the function. While in the learning phase, we will explicitly define the
+return statement.
+
 Let's try running our function.
 Calling our own function is no different from calling any other function:
-
 
 ```{r}
 # freezing point of water
@@ -231,70 +234,71 @@ This is our first taste of how larger programs are built: we define basic
 operations, then combine them in ever-larger chunks to get the effect we want.
 Real-life functions will usually be larger than the ones shown here--typically half a dozen to a few dozen lines--but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.
 
-> ## Nesting Functions
+> **Nesting Functions**
 >
-> This example showed the output of `fahrenheit_to_kelvin` assigned to `temp_K`, which
-> is then passed to `kelvin_to_celsius` to get the final result. It is also possible
-> to perform this calculation in one line of code, by "nesting" one function
-> inside another, like so:
->
-> ```{r chained-example}
-> # freezing point of water in Celsius
-> kelvin_to_celsius(fahrenheit_to_kelvin(32.0))
-> ```
-> ## Create a Function
->
-> In the last lesson, we learned to **c**ombine elements into a vector using the `c` function,
-> e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
-> Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector `y` with four elements.
-> Write a function called `highlight` that takes two vectors as arguments, called
-> `content` and `wrapper`, and returns a new vector that has the wrapper vector
-> at the beginning and end of the content:
->
-> ```{r, echo=-1}
-> highlight <- function(content, wrapper) {
->    answer <- c(wrapper, content, wrapper)
->    return(answer)
-> }
-> best_practice <- c("Write", "programs", "for", "people", "not", "computers")
-> asterisk <- "***"  # R interprets a variable with a single value as a vector
->                    # with one element.
-> highlight(best_practice, asterisk)
-> ```
-> <div class="fold o">
-> > ## Solution
-> > ~~~
-> > highlight <- function(content, wrapper) {
-> >   answer <- c(wrapper, content, wrapper)
-> >   return(answer)
-> > }
-> > ~~~
-> </div>
+This example showed the output of `fahrenheit_to_kelvin` assigned to `temp_K`, which
+is then passed to `kelvin_to_celsius` to get the final result. It is also possible
+to perform this calculation in one line of code, by "nesting" one function
+inside another, like so
+```{r chained-example}
+# freezing point of water in Celsius
+kelvin_to_celsius(fahrenheit_to_kelvin(32.0))
+```
 
-> > {: .language-r}
-> {: .solution}
->
-> If the variable `v` refers to a vector, then `v[1]` is the vector's first element and `v[length(v)]` is its last (the function `length` returns the number of elements in a vector).
-> Write a function called `edges` that returns a vector made up of just the first and last elements of its input:
->
-> ```{r, echo=-1}
-> edges <- function(v) {
->   first <- v[1]
->    last <- v[length(v)]
->    answer <- c(first, last)
->    return(answer)
-> }
-> dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
-> edges(dry_principle)
-> ```
->
-> > ## Solution
-> > ~~~
-> > edges <- function(v) {
-> >   first <- v[1]
-> >    last <- v[length(v)]
-> >    answer <- c(first, last)
-> >    return(answer)
-> > }
-> > ~~~
+<div class = "exercise fold s o">
+**Exercise**
 
+In the last lesson, we learned to **c**ombine elements into a vector using the `c` function,
+e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
+Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector `y` with four elements.
+Write a function called `highlight` that takes two vectors as arguments, called
+`content` and `wrapper`, and returns a new vector that has the wrapper vector
+at the beginning and end of the content:
+
+```{r, echo=-1}
+highlight <- function(content, wrapper) {
+  answer <- c(wrapper, content, wrapper)
+  return(answer)
+}
+best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+asterisk <- "***"  # R interprets a variable with a single value as a vector
+                    # with one element.
+highlight(best_practice, asterisk)
+```
+
+**Solution**
+```{r}
+highlight <- function(content, wrapper) {
+   answer <- c(wrapper, content, wrapper)
+   return(answer)
+}
+```
+</div>
+
+<div class = "exercise fold s o">
+**Exercise**
+
+If the variable `v` refers to a vector, then `v[1]` is the vector's first element and `v[length(v)]` is its last (the function `length` returns the number of elements in a vector).
+Write a function called `edges` that returns a vector made up of just the first and last elements of its input:
+
+```{r, echo=-1}
+ edges <- function(v) {
+   first <- v[1]
+    last <- v[length(v)]
+    answer <- c(first, last)
+    return(answer)
+ }
+dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
+edges(dry_principle)
+```
+
+**Solution**
+```{r}
+edges <- function(v) {
+  first <- v[1]
+  last <- v[length(v)]
+  answer <- c(first, last)
+  return(answer)
+ }
+```
+</div>

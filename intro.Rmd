@@ -80,13 +80,13 @@ According to recent editorials, the reproducibility crisis is still on-going
 
 
 # Getting started
-- Latest release 3.3.2 (October 2016)
-    + Base package and Contributed packages (general purpose extras)
-    + `r length(XML:::readHTMLTable("http://cran.r-project.org/web/packages/available_packages_by_date.html")[[1]][[2]])` available packages as of `r date()`
-- Download from http://mirrors.ebi.ac.uk/CRAN/
-- Windows, Mac and Linux versions available
-- Executed using command line, or a graphical user interface (GUI)
-- On this course, we use the RStudio GUI (www.rstudio.com)
+
+R can be done/executed using command line, or a graphical user interface (GUI). On this course, we use the RStudio GUI. Lets download required files and install. 
+
+1. Get latest version of R from [CRAN](https://cran.r-project.org/)
+    + This will come will some base packages installed for general tasks.
+    + We can also download additional required packages from CRAN for specific tasks, Currently `r length(XML:::readHTMLTable("http://cran.r-project.org/web/packages/available_packages_by_date.html")[[1]][[2]])` available packages as of `r date()`
+2. Download RStudio from [here](https://www.rstudio.com/products/rstudio/download/#download)
 
 ![rstudio](http://www.rstudio.com/wp-content/uploads/2014/03/blue-125.png) 
     

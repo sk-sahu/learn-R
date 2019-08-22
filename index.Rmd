@@ -40,6 +40,9 @@ During this course you will learn about:
 
 # Course Structure
 
+* [Session-1](session1.html) Data Type and Data Structure
+* [Session-2](session2.html) Steps to Basic Data Analysis
+* [Session-3](session3.html) Programming in R
 
 # Resources:
 This matrials are combination of one or more resources listed bellow.[^1][^2][^3]  
