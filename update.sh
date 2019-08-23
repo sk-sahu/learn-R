@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # print_usage function
 print_usage() {
   printf "Usage: bash update.sh -m 'message for commit' \n\n"
@@ -26,7 +25,10 @@ done
 # render all the Rmd files to html in /docs
 Rscript ./render_rmd2html.R
 
+echo "Rendering Done. Pushing the updates to github."
+
 # push the updates
+git config --global push.default simple
 git add --all
-git commit -a -m "$msg_flag"
+git commit -a -m $msg_flag
 git push
