@@ -23,8 +23,10 @@ done
 
 #echo $msg_flag
 
+# render all the Rmd files to html in /docs
 Rscript ./render_rmd2html.R
 
+# push the updates
 git add --all
-git commit -m $msg_flag
+git commit -a -m "$msg_flag"
 git push

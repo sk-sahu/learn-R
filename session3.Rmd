@@ -283,6 +283,7 @@ Write a function called `highlight` that takes two vectors as arguments, called
 `content` and `wrapper`, and returns a new vector that has the wrapper vector
 at the beginning and end of the content:
 
+**Solution**
 ```{r, echo=-1}
 highlight <- function(content, wrapper) {
   answer <- c(wrapper, content, wrapper)
@@ -293,14 +294,6 @@ asterisk <- "***"  # R interprets a variable with a single value as a vector
                     # with one element.
 highlight(best_practice, asterisk)
 ```
-
-**Solution**
-```{r}
-highlight <- function(content, wrapper) {
-   answer <- c(wrapper, content, wrapper)
-   return(answer)
-}
-```
 </div>
 
 <div class = "exercise fold s o">
@@ -309,6 +302,7 @@ highlight <- function(content, wrapper) {
 If the variable `v` refers to a vector, then `v[1]` is the vector's first element and `v[length(v)]` is its last (the function `length` returns the number of elements in a vector).
 Write a function called `edges` that returns a vector made up of just the first and last elements of its input:
 
+**Solution**
 ```{r, echo=-1}
  edges <- function(v) {
    first <- v[1]
@@ -318,15 +312,5 @@ Write a function called `edges` that returns a vector made up of just the first 
  }
 dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
 edges(dry_principle)
-```
-
-**Solution**
-```{r}
-edges <- function(v) {
-  first <- v[1]
-  last <- v[length(v)]
-  answer <- c(first, last)
-  return(answer)
- }
 ```
 </div>
