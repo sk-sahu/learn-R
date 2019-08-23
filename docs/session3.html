@@ -1959,10 +1959,14 @@ $(document).ready(function() {
 <p><strong>Exercise</strong></p>
 <p>In the last lesson, we learned to <strong>c</strong>ombine elements into a vector using the <code>c</code> function, e.g. <code>x &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</code> creates a vector <code>x</code> with three elements. Furthermore, we can extend that vector again using <code>c</code>, e.g. <code>y &lt;- c(x, &quot;D&quot;)</code> creates a vector <code>y</code> with four elements. Write a function called <code>highlight</code> that takes two vectors as arguments, called <code>content</code> and <code>wrapper</code>, and returns a new vector that has the wrapper vector at the beginning and end of the content:</p>
 <p><strong>Solution</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">best_practice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Write&quot;</span>, <span class="st">&quot;programs&quot;</span>, <span class="st">&quot;for&quot;</span>, <span class="st">&quot;people&quot;</span>, <span class="st">&quot;not&quot;</span>, <span class="st">&quot;computers&quot;</span>)</a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">asterisk &lt;-<span class="st"> &quot;***&quot;</span>  <span class="co"># R interprets a variable with a single value as a vector</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">                    <span class="co"># with one element.</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="kw">highlight</span>(best_practice, asterisk)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">highlight &lt;-<span class="st"> </span><span class="cf">function</span>(content, wrapper) {</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">  answer &lt;-<span class="st"> </span><span class="kw">c</span>(wrapper, content, wrapper)</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="kw">return</span>(answer)</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">best_practice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Write&quot;</span>, <span class="st">&quot;programs&quot;</span>, <span class="st">&quot;for&quot;</span>, <span class="st">&quot;people&quot;</span>, <span class="st">&quot;not&quot;</span>, <span class="st">&quot;computers&quot;</span>)</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">asterisk &lt;-<span class="st"> &quot;***&quot;</span>  <span class="co"># R interprets a variable with a single value as a vector</span></a>
+<a class="sourceLine" id="cb34-7" data-line-number="7">                    <span class="co"># with one element.</span></a>
+<a class="sourceLine" id="cb34-8" data-line-number="8"><span class="kw">highlight</span>(best_practice, asterisk)</a></code></pre></div>
 <pre><code>## [1] &quot;***&quot;       &quot;Write&quot;     &quot;programs&quot;  &quot;for&quot;       &quot;people&quot;    &quot;not&quot;      
 ## [7] &quot;computers&quot; &quot;***&quot;</code></pre>
 </div>
@@ -1970,8 +1974,14 @@ $(document).ready(function() {
 <p><strong>Exercise</strong></p>
 <p>If the variable <code>v</code> refers to a vector, then <code>v[1]</code> is the vector’s first element and <code>v[length(v)]</code> is its last (the function <code>length</code> returns the number of elements in a vector). Write a function called <code>edges</code> that returns a vector made up of just the first and last elements of its input:</p>
 <p><strong>Solution</strong></p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">dry_principle &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Don't&quot;</span>, <span class="st">&quot;repeat&quot;</span>, <span class="st">&quot;yourself&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;others&quot;</span>)</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">edges</span>(dry_principle)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">edges &lt;-<span class="st"> </span><span class="cf">function</span>(v) {</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">   first &lt;-<span class="st"> </span>v[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">    last &lt;-<span class="st"> </span>v[<span class="kw">length</span>(v)]</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">    answer &lt;-<span class="st"> </span><span class="kw">c</span>(first, last)</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">    <span class="kw">return</span>(answer)</a>
+<a class="sourceLine" id="cb36-6" data-line-number="6"> }</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">dry_principle &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Don't&quot;</span>, <span class="st">&quot;repeat&quot;</span>, <span class="st">&quot;yourself&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;others&quot;</span>)</a>
+<a class="sourceLine" id="cb36-8" data-line-number="8"><span class="kw">edges</span>(dry_principle)</a></code></pre></div>
 <pre><code>## [1] &quot;Don't&quot;  &quot;others&quot;</code></pre>
 </div>
 </div>

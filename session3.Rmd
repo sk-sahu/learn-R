@@ -284,7 +284,7 @@ Write a function called `highlight` that takes two vectors as arguments, called
 at the beginning and end of the content:
 
 **Solution**
-```{r, echo=-1}
+```{r}
 highlight <- function(content, wrapper) {
   answer <- c(wrapper, content, wrapper)
   return(answer)
@@ -303,8 +303,8 @@ If the variable `v` refers to a vector, then `v[1]` is the vector's first elemen
 Write a function called `edges` that returns a vector made up of just the first and last elements of its input:
 
 **Solution**
-```{r, echo=-1}
- edges <- function(v) {
+```{r}
+edges <- function(v) {
    first <- v[1]
     last <- v[length(v)]
     answer <- c(first, last)
