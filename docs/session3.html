@@ -1876,6 +1876,30 @@ $(document).ready(function() {
 <a class="sourceLine" id="cb19-4" data-line-number="4">}</a>
 <a class="sourceLine" id="cb19-5" data-line-number="5"><span class="kw">print</span>(sum)</a></code></pre></div>
 <pre><code>## [1] 55</code></pre>
+<p><strong>Exercise-1</strong></p>
+<p>Write program to check if the input number is prime or not take input from the user</p>
+<p><strong>Soultion</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">#num = as.integer(readline(prompt=&quot;Enter a number: &quot;))</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">num =<span class="st"> </span><span class="dv">7</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">flag =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co"># prime numbers are greater than 1</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="cf">if</span>(num <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">  <span class="co"># check for factors</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">  flag =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>(num<span class="dv">-1</span>)) {</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">    <span class="cf">if</span> ((num <span class="op">%%</span><span class="st"> </span>i) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">      flag =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb21-11" data-line-number="11">      <span class="cf">break</span></a>
+<a class="sourceLine" id="cb21-12" data-line-number="12">    }</a>
+<a class="sourceLine" id="cb21-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb21-14" data-line-number="14">} </a>
+<a class="sourceLine" id="cb21-15" data-line-number="15"><span class="cf">if</span>(num <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)    flag =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb21-16" data-line-number="16"><span class="cf">if</span>(flag <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb21-17" data-line-number="17">  <span class="kw">print</span>(<span class="kw">paste</span>(num,<span class="st">&quot;is a prime number&quot;</span>))</a>
+<a class="sourceLine" id="cb21-18" data-line-number="18">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb21-19" data-line-number="19">  <span class="kw">print</span>(<span class="kw">paste</span>(num,<span class="st">&quot;is not a prime number&quot;</span>))</a>
+<a class="sourceLine" id="cb21-20" data-line-number="20">}</a></code></pre></div>
+<pre><code>## [1] &quot;7 is a prime number&quot;</code></pre>
 </div>
 </div>
 </div>
@@ -1885,10 +1909,10 @@ $(document).ready(function() {
 <div id="defining-a-function" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Defining a Function</h3>
 <p>Let’s start by defining a function <code>fahrenheit_to_kelvin</code> that converts temperatures from Fahrenheit to Kelvin:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">fahrenheit_to_kelvin &lt;-<span class="st"> </span><span class="cf">function</span>(temp_F) {</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">  temp_K &lt;-<span class="st"> </span>((temp_F <span class="op">-</span><span class="st"> </span><span class="dv">32</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">/</span><span class="st"> </span><span class="dv">9</span>)) <span class="op">+</span><span class="st"> </span><span class="fl">273.15</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3">  <span class="kw">return</span>(temp_K)</a>
-<a class="sourceLine" id="cb21-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">fahrenheit_to_kelvin &lt;-<span class="st"> </span><span class="cf">function</span>(temp_F) {</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  temp_K &lt;-<span class="st"> </span>((temp_F <span class="op">-</span><span class="st"> </span><span class="dv">32</span>) <span class="op">*</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">/</span><span class="st"> </span><span class="dv">9</span>)) <span class="op">+</span><span class="st"> </span><span class="fl">273.15</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">  <span class="kw">return</span>(temp_K)</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">}</a></code></pre></div>
 <p>We define <code>fahrenheit_to_kelvin</code> by assigning it to the output of <code>function</code>. The list of argument names are contained within parentheses. Next, the body of the function–the statements that are executed when it runs–is contained within curly braces (<code>{}</code>). The statements in the body are indented by two spaces, which makes the code easier to read but does not affect how the code operates.</p>
 <p>When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a return statement to send a result back to whoever asked for it.</p>
 <blockquote>
@@ -1896,69 +1920,69 @@ $(document).ready(function() {
 <p>In R, it is not necessary to include the return statement. R automatically returns whichever variable is on the last line of the body of the function. While in the learning phase, we will explicitly define the return statement.</p>
 </blockquote>
 <p>Let’s try running our function. Calling our own function is no different from calling any other function:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># freezing point of water</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">fahrenheit_to_kelvin</span>(<span class="dv">32</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># freezing point of water</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">fahrenheit_to_kelvin</span>(<span class="dv">32</span>)</a></code></pre></div>
 <pre><code>## [1] 273.15</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># boiling point of water</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">fahrenheit_to_kelvin</span>(<span class="dv">212</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># boiling point of water</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">fahrenheit_to_kelvin</span>(<span class="dv">212</span>)</a></code></pre></div>
 <pre><code>## [1] 373.15</code></pre>
 <p>We’ve successfully called the function that we defined, and we have access to the value that we returned.</p>
 </div>
 <div id="composing-functions" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> Composing Functions</h3>
 <p>Now that we’ve seen how to turn Fahrenheit into Kelvin, it’s easy to turn Kelvin into Celsius:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">kelvin_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(temp_K) {</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">  temp_C &lt;-<span class="st"> </span>temp_K <span class="op">-</span><span class="st"> </span><span class="fl">273.15</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3">  <span class="kw">return</span>(temp_C)</a>
-<a class="sourceLine" id="cb26-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co"># absolute zero in Celsius</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw">kelvin_to_celsius</span>(<span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">kelvin_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(temp_K) {</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">  temp_C &lt;-<span class="st"> </span>temp_K <span class="op">-</span><span class="st"> </span><span class="fl">273.15</span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">  <span class="kw">return</span>(temp_C)</a>
+<a class="sourceLine" id="cb28-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb28-5" data-line-number="5"><span class="co"># absolute zero in Celsius</span></a>
+<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="kw">kelvin_to_celsius</span>(<span class="dv">0</span>)</a></code></pre></div>
 <pre><code>## [1] -273.15</code></pre>
 <p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can compose the two functions we have already created:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">fahrenheit_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(temp_F) {</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">  temp_K &lt;-<span class="st"> </span><span class="kw">fahrenheit_to_kelvin</span>(temp_F)</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">  temp_C &lt;-<span class="st"> </span><span class="kw">kelvin_to_celsius</span>(temp_K)</a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">  <span class="kw">return</span>(temp_C)</a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="co"># freezing point of water in Celsius</span></a>
-<a class="sourceLine" id="cb28-7" data-line-number="7"><span class="kw">fahrenheit_to_celsius</span>(<span class="fl">32.0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">fahrenheit_to_celsius &lt;-<span class="st"> </span><span class="cf">function</span>(temp_F) {</a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">  temp_K &lt;-<span class="st"> </span><span class="kw">fahrenheit_to_kelvin</span>(temp_F)</a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">  temp_C &lt;-<span class="st"> </span><span class="kw">kelvin_to_celsius</span>(temp_K)</a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">  <span class="kw">return</span>(temp_C)</a>
+<a class="sourceLine" id="cb30-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="co"># freezing point of water in Celsius</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="kw">fahrenheit_to_celsius</span>(<span class="fl">32.0</span>)</a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>This is our first taste of how larger programs are built: we define basic operations, then combine them in ever-larger chunks to get the effect we want. Real-life functions will usually be larger than the ones shown here–typically half a dozen to a few dozen lines–but they shouldn’t ever be much longer than that, or the next person who reads it won’t be able to understand what’s going on.</p>
 <blockquote>
 <p><strong>Nesting Functions</strong></p>
 <p>This example showed the output of <code>fahrenheit_to_kelvin</code> assigned to <code>temp_K</code>, which is then passed to <code>kelvin_to_celsius</code> to get the final result. It is also possible to perform this calculation in one line of code, by “nesting” one function inside another, like so</p>
 </blockquote>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># freezing point of water in Celsius</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="kw">kelvin_to_celsius</span>(<span class="kw">fahrenheit_to_kelvin</span>(<span class="fl">32.0</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># freezing point of water in Celsius</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="kw">kelvin_to_celsius</span>(<span class="kw">fahrenheit_to_kelvin</span>(<span class="fl">32.0</span>))</a></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <div class="exercise fold s o">
 <p><strong>Exercise</strong></p>
 <p>In the last lesson, we learned to <strong>c</strong>ombine elements into a vector using the <code>c</code> function, e.g. <code>x &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)</code> creates a vector <code>x</code> with three elements. Furthermore, we can extend that vector again using <code>c</code>, e.g. <code>y &lt;- c(x, &quot;D&quot;)</code> creates a vector <code>y</code> with four elements. Write a function called <code>highlight</code> that takes two vectors as arguments, called <code>content</code> and <code>wrapper</code>, and returns a new vector that has the wrapper vector at the beginning and end of the content:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">best_practice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Write&quot;</span>, <span class="st">&quot;programs&quot;</span>, <span class="st">&quot;for&quot;</span>, <span class="st">&quot;people&quot;</span>, <span class="st">&quot;not&quot;</span>, <span class="st">&quot;computers&quot;</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">asterisk &lt;-<span class="st"> &quot;***&quot;</span>  <span class="co"># R interprets a variable with a single value as a vector</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3">                    <span class="co"># with one element.</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="kw">highlight</span>(best_practice, asterisk)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">best_practice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Write&quot;</span>, <span class="st">&quot;programs&quot;</span>, <span class="st">&quot;for&quot;</span>, <span class="st">&quot;people&quot;</span>, <span class="st">&quot;not&quot;</span>, <span class="st">&quot;computers&quot;</span>)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">asterisk &lt;-<span class="st"> &quot;***&quot;</span>  <span class="co"># R interprets a variable with a single value as a vector</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">                    <span class="co"># with one element.</span></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="kw">highlight</span>(best_practice, asterisk)</a></code></pre></div>
 <pre><code>## [1] &quot;***&quot;       &quot;Write&quot;     &quot;programs&quot;  &quot;for&quot;       &quot;people&quot;    &quot;not&quot;      
 ## [7] &quot;computers&quot; &quot;***&quot;</code></pre>
 <p><strong>Solution</strong></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">highlight &lt;-<span class="st"> </span><span class="cf">function</span>(content, wrapper) {</a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">   answer &lt;-<span class="st"> </span><span class="kw">c</span>(wrapper, content, wrapper)</a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">   <span class="kw">return</span>(answer)</a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">highlight &lt;-<span class="st"> </span><span class="cf">function</span>(content, wrapper) {</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">   answer &lt;-<span class="st"> </span><span class="kw">c</span>(wrapper, content, wrapper)</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">   <span class="kw">return</span>(answer)</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">}</a></code></pre></div>
 </div>
 <div class="exercise fold s o">
 <p><strong>Exercise</strong></p>
 <p>If the variable <code>v</code> refers to a vector, then <code>v[1]</code> is the vector’s first element and <code>v[length(v)]</code> is its last (the function <code>length</code> returns the number of elements in a vector). Write a function called <code>edges</code> that returns a vector made up of just the first and last elements of its input:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">dry_principle &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Don't&quot;</span>, <span class="st">&quot;repeat&quot;</span>, <span class="st">&quot;yourself&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;others&quot;</span>)</a>
-<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="kw">edges</span>(dry_principle)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">dry_principle &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Don't&quot;</span>, <span class="st">&quot;repeat&quot;</span>, <span class="st">&quot;yourself&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;others&quot;</span>)</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">edges</span>(dry_principle)</a></code></pre></div>
 <pre><code>## [1] &quot;Don't&quot;  &quot;others&quot;</code></pre>
 <p><strong>Solution</strong></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">edges &lt;-<span class="st"> </span><span class="cf">function</span>(v) {</a>
-<a class="sourceLine" id="cb37-2" data-line-number="2">  first &lt;-<span class="st"> </span>v[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3">  last &lt;-<span class="st"> </span>v[<span class="kw">length</span>(v)]</a>
-<a class="sourceLine" id="cb37-4" data-line-number="4">  answer &lt;-<span class="st"> </span><span class="kw">c</span>(first, last)</a>
-<a class="sourceLine" id="cb37-5" data-line-number="5">  <span class="kw">return</span>(answer)</a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"> }</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">edges &lt;-<span class="st"> </span><span class="cf">function</span>(v) {</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">  first &lt;-<span class="st"> </span>v[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">  last &lt;-<span class="st"> </span>v[<span class="kw">length</span>(v)]</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4">  answer &lt;-<span class="st"> </span><span class="kw">c</span>(first, last)</a>
+<a class="sourceLine" id="cb39-5" data-line-number="5">  <span class="kw">return</span>(answer)</a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"> }</a></code></pre></div>
 </div>
 </div>
 </div>
