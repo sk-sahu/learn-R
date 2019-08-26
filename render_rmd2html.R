@@ -13,4 +13,3 @@ rmd_files <- list.files(pattern = ".Rmd")
 for (f in rmd_files) {
   rmarkdown::render(f, output_dir = "docs/")
 }
-

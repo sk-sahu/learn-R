@@ -1,0 +1,39 @@
+---
+title: "test-1"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+## Questions
+
+1. What is the name of organisation maintains R?
+
+2. Everything in R is treated as _____
+
+3. What is the difference between a data-frame and a matrix? (in one line)
+
+4. List out datatypes in R with example.
+
+5. `!=` is called ____ operator and `%%` is called ____ operator.
+
+6. An if condition can have multiple conditions separated by a logical operator. (TRUE or FALSE)
+
+7. Output of given program.
+
+```{r}
+x <- 78
+y <- 87
+if(y > x && FALSE){
+  print("y is greater than x")
+} else{
+  print("else block executed")
+}
+```
+
+8. Write a one line program to calculate mean of a given vector `marks` without using mean function. `marks <- c(89,91,68,47,39)`
+
+9. `a=3`, `b=7`, `c=5`, write a program to check greatest among these three.
+
+10. Write an user defined function named `speed` with two arguments `dist` and `time` to calculate speed.

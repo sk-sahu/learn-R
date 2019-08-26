@@ -7,6 +7,8 @@ date: '`r format(Sys.time(), "Last modified: %d %b %Y")`'
 # Course Description
 This course provides an introduction to the R programming language and software environment for statistical computing and graphics. A variety of examples with a biological theme will be presented.
 
+Although this is created based on class-sessions in mind, it can also adopted as self-learning material.
+
 # Prerequisites
 No prior programming experience is required, but those attending should be able to use a plain text editor.
 A very basic knowledge of UNIX would be an advantage, but nothing will e assumed and extremely little will be required.
@@ -25,7 +27,7 @@ After the course you should feel confident to start exploring your own dataset u
 
 During this course you will learn about: 
 
-* The RStudio interface to R
+* The R Studio interface to R
 * The many ways to access help about R
 * Basic object types in R
 * Importing tabular data into R
@@ -45,7 +47,7 @@ During this course you will learn about:
 * [Session-3](session3.html) Programming in R
 
 # Resources:
-This matrials are combination of one or more resources listed bellow.[^1][^2][^3]  
+This materials are combination of one or more resources listed bellow.[^1][^2][^3]  
 
 [^1]: [Cambridge Basic R Course](https://github.com/cambiotraining/r-intro)  
 [^2]: [swcarpentry r-novice-inflammation](https://github.com/swcarpentry/r-novice-inflammation/)

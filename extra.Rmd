@@ -4,12 +4,12 @@ title: "Extra"
 
 ## More materials
 
-So far we have discussed basic R. For indepth topics refer this following sources.
+So far we have discussed basic R. For in-depth topics refer this following sources.
 
 * Practical focused learning from [The Carpentries](http://swcarpentry.github.io/r-novice-inflammation/)
 * Datacarpentry's [Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/index.html)
 * Tutorials at [Quick-R](https://www.statmethods.net/index.html)
-* Interactive learning diretly in R using [Swril](https://swirlstats.com/)
+* Interactive learning directly in R using [Swril](https://swirlstats.com/)
 * Tidyverse based [Advanced R-programming](http://adv-r.had.co.nz/) by Hadley Wickham
 * Comprehensive [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham
 
@@ -17,7 +17,7 @@ So far we have discussed basic R. For indepth topics refer this following source
 
 ```{r, echo=FALSE}
 library(knitr)
-glossary <- read.table("glossary.tsv", sep = "\t")
-kable(glossary, col.names = c("terms", "definations"))
+glossary <- read.table("data/glossary.tsv", sep = "\t")
+kable(glossary, col.names = c("terms", "definitions"))
 ```
 

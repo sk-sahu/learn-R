@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
 
 # Programming in R
 
-Till this moment we were calling each built-in function and exicuting mostly in single lines.
+Till this moment we were calling each built-in function and executing mostly in single lines.
 Now Let's do some reals programming, which will include:
 
   * Conditional Statements
@@ -17,9 +17,9 @@ Now Let's do some reals programming, which will include:
 
 ## Conditional Statements
 
-Sometimes we needs to take dessions based on condition(s).
+Sometimes we needs to take decisions based on condition(s).
 
-In programing languages for doing this is called a conditional statement, and looks like this:
+In programming languages for doing this is called a conditional statement, and looks like this:
 
 ```{r, results='hold'}
 num <- 37
@@ -65,7 +65,7 @@ if (num < 100) {
 
 Write a if-else condition statement to find if a number is even or odd.
 
-**Soultion**
+**Solution**
 ```{r}
 num <- 34
 if(num%%2 == 0){
@@ -148,7 +148,7 @@ while(i <= 10 ) {
 
 Write a for loop to sum all numbers in between 1 to 10.
 
-**Soultion**
+**Solution**
 ```{r}
 sum <- 0 # initialize sum is zero
 for(n in 1:10){
@@ -161,7 +161,7 @@ print(sum)
 
 Write program to check if the input number is prime or not take input from the user
 
-**Soultion**
+**Solution**
 ```{r}
 #num = as.integer(readline(prompt="Enter a number: "))
 num = 7
@@ -276,7 +276,7 @@ kelvin_to_celsius(fahrenheit_to_kelvin(32.0))
 <div class = "exercise fold s o">
 **Exercise**
 
-In the last lesson, we learned to **c**ombine elements into a vector using the `c` function,
+In the last lesson, we learned to combine elements into a vector using the `c` function,
 e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
 Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector `y` with four elements.
 Write a function called `highlight` that takes two vectors as arguments, called

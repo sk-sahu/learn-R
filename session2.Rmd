@@ -22,11 +22,11 @@ knitr::opts_chunk$set(echo = TRUE)
     + `write.table()`
     + `write.csv()`
   
-## A simple walkthrough
+## A simple walk-through
 
 - We have data from 100 patients that given consent for their data to use in future studies
 - A researcher wants to undertake a study involving people that are overweight
-- We will walkthrough how to filter the data and write a new file with the candidates for the study    
+- We will walk-through how to filter the data and write a new file with the candidates for the study    
     
 ## The Working Directory (wd)
 
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 save files, by default
 - For this course we need to set the working directory to the location
 of the course scripts
-- In RStudio use the mouse and browse to the directory where you saved the Course Materials
+- In R Studio use the mouse and browse to the directory where you saved the Course Materials
 
 - ***Session → Set Working Directory → Choose Directory...***
 
@@ -170,7 +170,7 @@ mean(patients$Height)
 
 - However, sometimes we have to tell the functions what to do with them. 
 - R has some built-in functions for dealing with `NA`s, and functions often have their own arguments (like `na.rm`) for handling them:
-    + annoyingly, different functions have different argument names to change their behaviour with regards to `NA` values. *Always check the documentation*
+    + annoyingly, different functions have different argument names to change their behavior with regards to `NA` values. *Always check the documentation*
 
 ```{r}
 mean(patients$Height, na.rm = TRUE)
@@ -209,7 +209,7 @@ head(patients)
 ```
 
 - To actually select the candidates we can use a logical expression to test the values of the BMI vector being greater than the upper limit
-    + if the second line looks a bit weird, remember that `<-` is doing an assignment. Thevalue we are assigning to our new variable is the logical (`TRUE` or `FALSE`) vector given by testing each item in `BMI` against the `upper.limit`
+    + if the second line looks a bit weird, remember that `<-` is doing an assignment. The value we are assigning to our new variable is the logical (`TRUE` or `FALSE`) vector given by testing each item in `BMI` against the `upper.limit`
     
 ```{r}
 BMI > upper.limit
