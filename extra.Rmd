@@ -6,8 +6,11 @@ title: "Extra"
 
 So far we have discussed basic R. For in-depth topics refer this following sources.
 
+* Cambridge training's [Basic R](http://cambiotraining.github.io/r-intro/)
+* Cambridge training's [Intermediate R](http://bioinformatics-core-shared-training.github.io/r-intermediate/)
 * Practical focused learning from [The Carpentries](http://swcarpentry.github.io/r-novice-inflammation/)
 * Datacarpentry's [Data Analysis and Visualization in R for Ecologists](https://datacarpentry.org/R-ecology-lesson/index.html)
+* Web-book: [R and Bioconductor for everyone an introduction](https://bioconductor.github.io/BiocWorkshops/r-and-bioconductor-for-everyone-an-introduction.html)
 * Tutorials at [Quick-R](https://www.statmethods.net/index.html)
 * Interactive learning directly in R using [Swril](https://swirlstats.com/)
 * Tidyverse based [Advanced R-programming](http://adv-r.had.co.nz/) by Hadley Wickham

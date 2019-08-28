@@ -13,6 +13,8 @@ navbar:
       href: session2.html
     - text: "Session-3"
       href: session3.html
+    - text: "Session-4"
+      href: session-4.html
   right:
     - text: "Extra"
       href: extra.html
@@ -20,7 +22,7 @@ navbar:
       menu:
         - text: "Test-1"
           href: test-1.html
-    - icon: fa-question fa-lg
+    - icon: fa-info-circle fa-lg
       href: index.html
 output:
   html_document:

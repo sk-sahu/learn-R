@@ -1,0 +1,22 @@
+---
+title: "Session-4"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction to Bioconductor
+Bioconductor is a collection of more than 1,500 packages for the statistical analysis and comprehension of high-throughput genomic data. Originally developed for microarrays, Bioconductor packages are now used in a wide range of analyses, including bulk and single-cell RNA-seq, ChIP seq, copy number analysis, microarray methylation and classic expression analysis, flow cytometry, and many other domains.
+
+This session introduces the essential of Bioconductor package discovery, installation, and use.
+
+### Use Biocondutor
+Discovering, installing, and learning how to use Bioconductor packages.
+
+The web site at https://bioconductor.org contains descriptions of all Bioconductor packages, as well as essential reference material for all levels of user.
+```{r, eval=FALSE}
+install.packages("BiocManager")
+BiocManager::install(c("rtracklayer", "GenomicRanges"))
+```
+
