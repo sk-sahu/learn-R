@@ -32,7 +32,7 @@ Rscript ./render_rmd2html.R
 echo "========= Encrypting test files ========="
 # https://github.com/robinmoisson/staticrypt
 rm docs/*_encrypted.html
-find . -type f -name "test*.html" -exec staticrypt {} go -f style/pwd_templet.html \;
+find . -type f -name "test*.html" -exec staticrypt {} go -f style/pwd_templet.html -t "Start Test" \;
 
 echo "========= Updates to Github ==========="
 # push the updates
