@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#------------------------------------------------------------
+# This bash script use to render Rmd to HTML, add encryption 
+# to some html file and push updates to git.
+#------------------------------------------------------------
+
 # print_usage function
 print_usage() {
   printf "Usage: bash update.sh -m 'message for commit' \n\n"
@@ -20,8 +25,6 @@ while getopts 'm:' flag; do
   esac
 done
 
-#echo $msg_flag
-
 echo "============= Rendering =============="
 # render all the Rmd files to html in /docs
 Rscript ./render_rmd2html.R
@@ -32,8 +35,6 @@ rm docs/*_encrypted.html
 find . -type f -name "test*.html" -exec staticrypt {} go -f style/pwd_templet.html \;
 
 echo "========= Updates to Github ==========="
-
-
 # push the updates
 git config --global push.default simple
 git add --all
