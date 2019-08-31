@@ -22,10 +22,17 @@ done
 
 #echo $msg_flag
 
+echo "============= Rendering =============="
 # render all the Rmd files to html in /docs
 Rscript ./render_rmd2html.R
 
-echo "Rendering Done. Pushing the updates to github."
+echo "========= Encrypting test files ========="
+# https://github.com/robinmoisson/staticrypt
+rm docs/*_encrypted.html
+find . -type f -name "*.html" -exec staticrypt {} go -f style/pwd_templet.html \;
+
+echo "========= Updates to Github ==========="
+
 
 # push the updates
 git config --global push.default simple
