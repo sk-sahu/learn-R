@@ -130,7 +130,7 @@
                    placeholder="Enter Test Passcode"
                    autofocus/>
 
-            <input type="submit" class="staticrypt-decrypt-button" value="DECRYPT"/>
+            <input type="submit" class="staticrypt-decrypt-button" value="START TEST"/>
         </form>
     </div>
 
@@ -177,7 +177,7 @@
             decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
 
         if (decryptedHMAC !== encryptedHMAC) {
-            alert('Bad passphrase!');
+            alert('Test Passcode Not correct');
             return;
         }
 
