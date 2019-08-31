@@ -18,6 +18,10 @@ navbar:
   right:
     - text: "Extra"
       href: extra.html
+    - text: "Practice"  
+      menu:
+        - text: "Exercises-1"
+          href: exercises-1.html
     - text: "Tests"  
       menu:
         - text: "Test-1"
