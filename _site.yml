@@ -25,7 +25,7 @@ navbar:
     - text: "Tests"  
       menu:
         - text: "Test-1"
-          href: test-1.html
+          href: test-1_encrypted.html
     - icon: fa-info-circle fa-lg
       href: index.html
 output:

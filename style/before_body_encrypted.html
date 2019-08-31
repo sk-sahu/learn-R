@@ -173,7 +173,7 @@
         e.preventDefault();
 
         var passphrase = document.getElementById('staticrypt-password').value,
-            encryptedMsg = '4f23ca41d8c50ae8dbf4cfe0c540e764b96dd403687f1fa5c5370b4828c8f84dd2c4d717aff25376599ede6853b17e224d7f7c23b169ee009aabffaa58dec2efF3nXCzO+T0v32EnQ3WiJhcLcy0CleZ1ryw1iGO3CGAShAes5uLcn+JsLxKvUZJYFHHvKw7h89UtZ+x1hEZQf9CCuUD7FCFT4zfWXfgmP9/w=',
+            encryptedMsg = '042d25b1cbb74ec6bc47c0e41845592b5bf7e937de4125e44dbcdf145528da056867e81ec66040cf32b0491197fe0d379b8b7cd5a40743264c6e15ed48324bd2k7+UxfzlINmVTRH8CeoMnCuNG4PzcKNfAj8fg19YS2AOBixLroH7fsXAIJwISiH5b69p5YBsg16td2dAXEbd5PMZgvXoXXcJaz0Z5E2YuZ8=',
             encryptedHMAC = encryptedMsg.substring(0, 64),
             encryptedHTML = encryptedMsg.substring(64),
             decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
