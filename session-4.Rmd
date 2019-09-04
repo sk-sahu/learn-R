@@ -6,6 +6,18 @@ title: "Session-4"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Packages
+
+Packages are collection of several functions in R.
+
+To use a perticular function from a package, it need to be downloaded and loaded.
+
+### Install a package from CRAN
+```{r, eval=FALSE}
+# download and install 'ggplot2' package from CRAN
+install.packages("ggplot2")
+```
+
 ## Introduction to Bioconductor
 Bioconductor is a collection of more than 1,500 packages for the statistical analysis and comprehension of high-throughput genomic data. Originally developed for microarrays, Bioconductor packages are now used in a wide range of analyses, including bulk and single-cell RNA-seq, ChIP seq, copy number analysis, microarray methylation and classic expression analysis, flow cytometry, and many other domains.
 
@@ -15,8 +27,46 @@ This session introduces the essential of Bioconductor package discovery, install
 Discovering, installing, and learning how to use Bioconductor packages.
 
 The web site at https://bioconductor.org contains descriptions of all Bioconductor packages, as well as essential reference material for all levels of user.
+
+### Install from Bioconductor
 ```{r, eval=FALSE}
 install.packages("BiocManager")
 BiocManager::install(c("rtracklayer", "GenomicRanges"))
+```
+
+## Usecase
+Lets see how to do diffrential expression analysis using Biocondutor package called `DESeq2`
+
+Required files can be downloaded here - 
+  1. [Read Count Matrix](../data/read_count_matrix.txt)
+  2. [Metadata](../data/metadata.txt)
+
+```{r, eval=FALSE}
+BiocManager::install("DESeq2")
+setwd("your/working/dir/path")
+count_data <- read.table("data/reads_counts_matrix.txt", header = TRUE, row.names = 1)
+metadata <- read.table("data/metadata.txt", header = TRUE, row.names = 1)
+all(rownames(metadata) == colnames(count_data))
+dds <- DESeqDataSetFromMatrix(countData = count_data,
+                              colData = metadata,
+                              design = ~ conditions)
+keep <- rowSums(counts(dds)) >= 10
+dds <- dds[keep,]
+# Run DESeq2 function ----
+dds <- DESeq(dds, parallel = FALSE)
+vld <- varianceStabilizingTransformation(dds, blind=FALSE)
+boxplot(log2(count_matrix), 
+        xlab="", 
+        ylab="Log2(Counts)",
+        main = "Before Normalization",
+        las=2,
+        col=statusCol)
+boxplot(log2(assay(dds)), 
+        xlab="", 
+        ylab="Log2(Counts)",
+        main = "After Normalization",
+        las=2,
+        col=statusCol)
+plotPCA(vld, intgroup=c("condition"))
 ```
 
