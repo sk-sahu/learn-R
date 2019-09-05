@@ -1,6 +1,0 @@
-sample	conditions
-SRR1039508	con
-SRR1039509	con
-SRR1039512	trt
-SRR1039513	trt
-

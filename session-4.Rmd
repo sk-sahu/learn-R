@@ -37,36 +37,56 @@ BiocManager::install(c("rtracklayer", "GenomicRanges"))
 ## Usecase
 Lets see how to do diffrential expression analysis using Biocondutor package called `DESeq2`
 
-Required files can be downloaded here - 
-  1. [Read Count Matrix](../data/read_count_matrix.txt)
-  2. [Metadata](../data/metadata.txt)
+Get the required files using `wget` in terminal.
+```{bash, eval=FALSE}
+# RAW Read Count Matrix
+wget https://raw.githubusercontent.com/sk-sahu/learn-R/master/data/airway_count_matrix.txt
+# Meta Data
+wget https://raw.githubusercontent.com/sk-sahu/learn-R/master/data/airway_metadata.txt
+```
 
+This above is derived from Bioconductor experimental data [`airway` package](https://bioconductor.org/packages/release/data/experiment/html/airway.html). Which is a part [this](http://www.ncbi.nlm.nih.gov/pubmed/24926665) publication.
+
+General commands to run DESeq2
 ```{r, eval=FALSE}
+# Install DESeq2
 BiocManager::install("DESeq2")
+# Set Working Directory
 setwd("your/working/dir/path")
-count_data <- read.table("data/reads_counts_matrix.txt", header = TRUE, row.names = 1)
-metadata <- read.table("data/metadata.txt", header = TRUE, row.names = 1)
+# Import data
+count_data <- read.table("reads_counts_matrix.txt", header = TRUE, row.names = 1)
+metadata <- read.table("metadata.txt", header = TRUE, row.names = 1)
+# Check data
 all(rownames(metadata) == colnames(count_data))
+# Built DESeq Object
 dds <- DESeqDataSetFromMatrix(countData = count_data,
                               colData = metadata,
                               design = ~ conditions)
+# Filter low reads counts
 keep <- rowSums(counts(dds)) >= 10
 dds <- dds[keep,]
-# Run DESeq2 function ----
+# Run Diffrential Analysis
 dds <- DESeq(dds, parallel = FALSE)
-vld <- varianceStabilizingTransformation(dds, blind=FALSE)
-boxplot(log2(count_matrix), 
-        xlab="", 
-        ylab="Log2(Counts)",
-        main = "Before Normalization",
-        las=2,
-        col=statusCol)
-boxplot(log2(assay(dds)), 
-        xlab="", 
-        ylab="Log2(Counts)",
-        main = "After Normalization",
-        las=2,
-        col=statusCol)
-plotPCA(vld, intgroup=c("condition"))
+# Results
+res <- results(dds)
+# Visulaize Results
+plotMA(res)
+abline(h=c(-1,1), col="dodgerblue", lwd=2)
+# filter only significant genes (padj <= )
+res_sig <- subset(res, padj <= 0.05)
+# export the significant results to a file
+write.csv(res_sig, "DE_results.csv")
+
+# Normalization and Visulaization
+## log-transcformation
+rld <- rlog(dds)
+## Box-plot
+boxplot(log2(count_matrix), ylab="Log2(Read Count)", main = "Before Normalization",las=2)
+boxplot(assay(rld), ylab="rlog transformation", main = "Before Normalization",las=2)
+## PCA-plot
+plotPCA(rld, intgroup=c("cell", "dex"))
+## Expression Heatmap for 50 significant genes
+sig_gene_list <- rownames(res_sig)[1:500]
+heatmap(assay(rld)[sig_gene_list, ])
 ```
 
