@@ -6,13 +6,13 @@ title: "Session-4"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Packages
+# Packages
 
 Packages are collection of several functions in R.
 
 To use a perticular function from a package, it need to be downloaded and loaded.
 
-### Install a package from CRAN
+## Install a package from CRAN
 ```{r, eval=FALSE}
 # download and install 'ggplot2' package from CRAN
 install.packages("ggplot2")
@@ -23,18 +23,18 @@ Bioconductor is a collection of more than 1,500 packages for the statistical ana
 
 This session introduces the essential of Bioconductor package discovery, installation, and use.
 
-### Use Biocondutor
+## Use Biocondutor
 Discovering, installing, and learning how to use Bioconductor packages.
 
 The web site at https://bioconductor.org contains descriptions of all Bioconductor packages, as well as essential reference material for all levels of user.
 
-### Install from Bioconductor
+## Install from Bioconductor
 ```{r, eval=FALSE}
 install.packages("BiocManager")
 BiocManager::install(c("rtracklayer", "GenomicRanges"))
 ```
 
-## Usecase
+# Usecase
 Lets see how to do diffrential expression analysis using Biocondutor package called `DESeq2`
 
 Get the required files using `wget` in terminal.
