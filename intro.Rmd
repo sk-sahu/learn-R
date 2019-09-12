@@ -6,6 +6,12 @@ title: "Introduction"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+### Aim { .session-start }
+* What is R
+* Why use R
+* Who use R
+* Getting Started with R
+
 # What is R?
 
 * A statistical programming environment
@@ -94,3 +100,7 @@ R can be done/executed using command line, or a graphical user interface (GUI). 
 To launch RStudio, find the RStudio icon and click
 
 ![RStudio screenshot](images/rstudio-windows.png)
+
+### Key Points { .session-end }
+* Vast Graphics control in R
+* Reproducibility can done with R

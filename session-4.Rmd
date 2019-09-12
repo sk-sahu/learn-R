@@ -6,6 +6,10 @@ title: "Session-4"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+### Aim { .session-start }
+* Learn about packages in R
+* Use Bioconductor
+
 # Packages
 
 Packages are collection of several functions in R.
@@ -90,3 +94,5 @@ sig_gene_list <- rownames(res_sig)[1:500]
 heatmap(assay(rld)[sig_gene_list, ])
 ```
 
+### Key Points { .session-end }
+* To install packages from Biocondutor `BiocManager::install(pkg_name)`

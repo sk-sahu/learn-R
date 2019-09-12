@@ -2,12 +2,11 @@
 title: "session-5"
 ---
 
+### Aim { .session-start }
+* Learning how to graph/plot in R and basic customizations.
+
 # Graphics
 One of the main reasons data analysts turn to R is for its strong graphic capabilities.
-
-# Aim
-Learning how to graph/plot in R and basic customizations.
-
 
 # Creating a Graph
 ```{r}
@@ -119,3 +118,6 @@ legend("topright", inset=.05, title="Number of Cylinders",
 
 # Advance Ploting
 Refer the follwing link - https://www.statmethods.net/advgraphs/index.html
+
+### Key Points { .session-end }
+* Legends of any plot can be made using `legend()` just after the plot is made.

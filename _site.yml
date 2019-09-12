@@ -8,11 +8,11 @@ navbar:
     - text: "Introduction"
       href: intro.html
     - text: "Session-1"
-      href: session1.html
+      href: session-1.html
     - text: "Session-2"
-      href: session2.html
+      href: session-2.html
     - text: "Session-3"
-      href: session3.html
+      href: session-3.html
     - text: "Session-4"
       href: session-4.html
     - text: "Session-5"
@@ -39,7 +39,7 @@ output:
     theme: cerulean
     highlight: tango
     toc: true
-    number_sections: true
+    number_sections: false
     toc_depth: 2
     toc_float:
       collapsed: false
