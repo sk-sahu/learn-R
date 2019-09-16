@@ -5,7 +5,7 @@
 # to some html file and push updates to git.
 #------------------------------------------------------------
 
-# Usage: bash update.sh 'message for commit'
+# Usage: bash update.sh 'message_for_commit'
 
 # Arguments default
 msg_flag='no_msg'
