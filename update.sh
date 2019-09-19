@@ -12,8 +12,11 @@ msg_flag='no_msg'
 msg_flag=$1
 
 echo "============= Rendering =============="
-# render all the Rmd files to html in /docs
+# remove old files
 rm -rf docs/*
+# copy 'www' html files to 'docs'
+cp www/* docs
+# render all the Rmd files to html in /docs
 Rscript ./render_rmd2html.R
 
 echo "========= Encrypting test files ========="

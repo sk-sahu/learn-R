@@ -18,6 +18,8 @@ navbar:
     - text: "Session-5"
       href: session-5.html
   right:
+    - test: "Run-R"
+      href: run_baseR.html
     - text: "Extra"
       href: extra.html
     - text: "Practice"  
