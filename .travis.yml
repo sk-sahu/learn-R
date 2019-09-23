@@ -17,6 +17,7 @@ after_success: R -q -e 'tic::after_success()'
 after_failure: R -q -e 'tic::after_failure()'
 before_deploy: R -q -e 'tic::before_deploy()'
 deploy:
+<<<<<<< HEAD
   provider: script
   script: R -q -e 'tic::deploy()'
   on:
@@ -41,3 +42,15 @@ env:
 
 #services
 services:
+=======
+  provider: pages
+  skip_cleanup: true
+  github_token: 36839c34d27377b91f1a2885f8f747d96f1eea0f  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+  local_dir: docs
+    
+before_install:
+  - gem install rake
+>>>>>>> b899cc1009a6831bc67b4073abad4b6f4d7dc53b
