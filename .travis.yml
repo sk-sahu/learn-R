@@ -5,6 +5,7 @@ deploy:
   keep_history: true
   on:
     branch: master
+  local_dir: docs
     
 before_install:
   - gem install rake
