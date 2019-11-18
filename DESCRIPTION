@@ -4,3 +4,4 @@ Title: Learn R website
 Version: 0.0.1
 Imports:
   rmarkdown
+  XML
