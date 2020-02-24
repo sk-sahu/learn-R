@@ -1,0 +1,104 @@
+---
+title: "Introduction"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Aim { .session-start }
+* What is R
+* Why use R
+* Who use R
+* Getting Started with R
+
+# What is R?
+
+* A statistical programming environment
+    + based on 'S'
+    + suited to high-level data analysis
+* But offers much more than just statistics
+* Open source and cross platform
+* Extensive graphics capabilities
+* Diverse range of add-on packages
+* Active community of developers
+* Thorough documentation
+
+http://www.r-project.org/
+
+![R screenshot](images/R-project.png)
+
+![New York Times, Jan 2009](images/NYTimes_R_Article.png)
+
+# Why R?
+
+We can do lot of stuffs in R. Starting from statestical analysis to plotting graphs and figures, Writing technical documentation to making a website and lot more. Lets explore.
+
+# R plotting capabilities
+
+https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919
+![R facebook](images/facebook-network.png)
+
+# Who uses R? Not just academics!
+
+http://www.revolutionanalytics.com/companies-using-r
+
+- Facebook
+    + http://blog.revolutionanalytics.com/2010/12/analysis-of-facebook-status-updates.html
+- Google
+    + http://blog.revolutionanalytics.com/2009/05/google-using-r-to-analyze-effectiveness-of-tv-ads.html
+- Microsoft
+    + http://blog.revolutionanalytics.com/2014/05/microsoft-uses-r-for-xbox-matchmaking.html
+- New York Times
+    + http://blog.revolutionanalytics.com/2011/03/how-the-new-york-times-uses-r-for-data-visualization.html
+- Buzzfeed
+    + http://blog.revolutionanalytics.com/2015/12/buzzfeed-uses-r-for-data-journalism.html
+- New Zealand Tourist Board
+    + https://mbienz.shinyapps.io/tourism_dashboard_prod/
+
+    
+# R can facilitate Reproducible Research
+
+![Sidney Harris - New York Times](images/SidneyHarris_MiracleWeb.jpg)
+
+
+
+
+- Statisticians at MD Anderson tried to reproduce results from a Duke paper and unintentionally unravelled a web of incompetence and skullduggery
+    + as reported in the ***New York Times***
+    
+![New York Times, July 2011](images/rep-research-nyt.png)
+
+
+
+- Very entertaining talk from Keith Baggerly in Cambridge, December 2010
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allowfullscreen></iframe>
+
+According to recent editorials, the reproducibility crisis is still on-going
+
+![Nature, May 2016](images/rep-crisis.png)
+
+
+[Reality check on reproducibility](http://www.nature.com/news/reality-check-on-reproducibility-1.19961)
+
+[1,500 scientists lift the lid on reproducibility](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
+
+
+# Getting started
+
+R can be done/executed using command line, or a graphical user interface (GUI). On this course, we use the RStudio GUI. Lets download required files and install. 
+
+1. Get latest version of R from [CRAN](https://cran.r-project.org/)
+    + This will come will some base packages installed for general tasks.
+    + We can also download additional required packages from CRAN for specific tasks, Currently `r length(XML:::readHTMLTable("http://cran.r-project.org/web/packages/available_packages_by_date.html")[[1]][[2]])` available packages as of `r date()`
+2. Download RStudio from [here](https://www.rstudio.com/products/rstudio/download/#download)
+    
+
+To launch RStudio, find the RStudio icon and click
+
+![RStudio screenshot](images/rstudio-windows.png)
+
+### Key Points { .session-end }
+* Vast Graphics control in R
+* Reproducibility can done with R
