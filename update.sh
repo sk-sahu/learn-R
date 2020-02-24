@@ -24,9 +24,11 @@ echo "========= Encrypting test files ========="
 #rm docs/*_encrypted.html
 find . -type f -name "test*.html" -exec staticrypt {} go -f style/pwd_templet.html -t "Take a Test" \;
 
-echo "========= Updates to Github ==========="
+echo "Encryption is done."
+
+#echo "========= Updates to Github ==========="
 # push the updates
-git config --global push.default simple
-git add --all
-git commit -m $msg_flag
-git push
+#git config --global push.default simple
+#git add --all
+#git commit -m $msg_flag
+#git push
