@@ -35,6 +35,7 @@ navbar:
 output:
   html_document:
     includes:
+          in_header: meta/GA.html
           before_body: style/before_body.html
           after_body: style/footer.html
     css: style/sessions.css
