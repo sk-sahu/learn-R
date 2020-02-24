@@ -9,7 +9,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Aim { .session-start }
 * Understanding Basic Data Types and Data Structures in R
 
-# Data Type
+#
+#
+
+## Data Type
 
 To make the best of the R language, you'll need a strong understanding of the
 basic data types and data structures and how to operate on them.
@@ -62,7 +65,7 @@ z
 typeof(z)
 ```
 
-# Data Structure
+## Data Structure
 
 R has many __data structures__. These include
 
@@ -72,7 +75,7 @@ R has many __data structures__. These include
 * data frame
 * factors
 
-## Vectors
+### Vectors
 
 A vector is the most common and basic data structure in R and is pretty much the
 workhorse of R. Technically, vectors can be one of two types:
@@ -82,7 +85,7 @@ workhorse of R. Technically, vectors can be one of two types:
 
 although the term "vector" most commonly refers to the atomic types not to lists.
 
-### The Different Vector Modes
+#### The Different Vector Modes
 
 A vector is a collection of elements that are most commonly of mode `character`,
 `logical`, `integer` or `numeric`.
@@ -127,7 +130,7 @@ While using quoted text will create a vector of mode `character`:
 z <- c("Sarah", "Tracy", "Jon")
 ```
 
-### Examining Vectors
+#### Examining Vectors
 
 The functions `typeof()`, `length()`, `class()` and `str()` provide useful
 information about your vectors and R objects in general.
@@ -139,7 +142,7 @@ class(z)
 str(z)
 ```
 
-### Adding Elements
+#### Adding Elements
 
 The function `c()` (for combine) can also be used to add elements to a vector.
 
@@ -150,7 +153,7 @@ z <- c("Greg", z)
 z
 ```
 
-### Vectors from a Sequence of Numbers
+#### Vectors from a Sequence of Numbers
 
 You can create vectors as a sequence of numbers.
 
@@ -160,7 +163,7 @@ seq(10)
 seq(from = 1, to = 10, by = 0.1)
 ```
 
-### Missing Data
+#### Missing Data
 
 R supports missing data in vectors. They are represented as `NA` (Not Available)
 and can be used for all the vector types covered in this lesson:
@@ -185,7 +188,7 @@ anyNA(x)
 anyNA(y)
 ```
 
-### Other Special Values
+#### Other Special Values
 
 `Inf` is infinity. You can have either positive or negative infinity.
 
@@ -199,7 +202,7 @@ anyNA(y)
 0/0
 ```
 
-### What Happens When You Mix Types Inside a Vector?
+#### What Happens When You Mix Types Inside a Vector?
 
 R will create a resulting vector with a mode that can most easily accommodate
 all the elements it contains. This conversion between modes of storage is called
@@ -228,7 +231,7 @@ as.character(1:2)
 > > **Solution**  
 > > All vectors are one-dimensional and each element is of the same type.
 
-### Objects Attributes
+#### Objects Attributes
 
 Objects can have __attributes__. Attributes are part of the object. These include:
 
@@ -246,7 +249,7 @@ length(1:10)
 nchar("Software Carpentry")
 ```
 
-## Matrix
+### Matrix
 
 In R matrices are an extension of the numeric or character vectors. They are not
 a separate type of object but simply an atomic vector with dimensions; the
@@ -338,7 +341,7 @@ dimension (e.g. "row" and "column") in single square brackets.
 mdat[2, 3]
 ```
 
-## List
+### List
 
 In R lists act as containers. Unlike atomic vectors, the contents of a list are
 not restricted to a single mode and can encompass any mixture of data
@@ -423,7 +426,7 @@ another list. If the elements of a list are named, they can be referenced by
 the `$` notation (i.e. `xlist$data`).
 
 
-## Data Frame
+### Data Frame
 
 A data frame is a very important data type in R. It's pretty much the *de facto*
 data structure for most tabular data and what we use for statistics.
@@ -443,7 +446,7 @@ Some additional information on data frames:
 * Find the number of rows and columns with `nrow(dat)` and `ncol(dat)`, respectively.
 * Rownames are often automatically generated and look like 1, 2, ..., n. Consistency in numbering of rownames may not be honored when rows are reshuffled or subset.
 
-### Creating Data Frames by Hand
+#### Creating Data Frames by Hand
 
 To create data frames by hand:
 

@@ -10,7 +10,10 @@ knitr::opts_chunk$set(echo = TRUE)
 * Reading tabular data to R
 * data analysis
 
-# Steps to Basic Data Analysis
+#
+#
+
+## Steps to Basic Data Analysis
 
 - In this short section, we show how the data manipulation steps we have just seen can be used as part of an analysis pipeline:
 

@@ -47,9 +47,9 @@ During this course you will learn about:
 * [Session-3](session-3.html) Programming in R
 * [Session-4](session-4.html) Packages in R and Biocondutor
 * [Session-5](session-5.html) Graphics in R
-* [Extra](extra.html) Resource Links and Glossary
 * [Practice](exercises-1.html) For self-exercise
 * [Class Test](test-1_encrypted.html)
+* [Reference](reference.html) Resource Links and Glossary
 
 # Resources:
 This materials are combination of one or more resources listed bellow.[^1][^2][^3]  

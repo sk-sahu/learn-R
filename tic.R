@@ -6,7 +6,7 @@ get_stage("install") %>%
 
 if (ci_on_travis()) {
   get_stage("deploy") %>%
-    add_code_step(rmarkdown::render_site())
+    add_code_step(rmarkdown::render_site(input = "website"))
   
   if (ci_has_env("id_rsa")) {
     get_stage("before_deploy") %>%

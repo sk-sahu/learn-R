@@ -5,10 +5,13 @@ title: "session-5"
 ### Aim { .session-start }
 * Learning how to graph/plot in R and basic customizations.
 
-# Graphics
+#
+#
+
+## Graphics
 One of the main reasons data analysts turn to R is for its strong graphic capabilities.
 
-# Creating a Graph
+## Creating a Graph
 ```{r}
 attach(mtcars)
 plot(wt, mpg)
@@ -19,7 +22,7 @@ title("Regression of MPG on Weight")
 The `plot( )` function opens a graph window and plots weight vs. miles per gallon.
 The next line of code adds a regression line to this graph. The final line adds a title.
 
-# Saving Graphs
+## Saving Graphs
 You can save the graph in a variety of formats from the menu
 File -> Save As.
 
@@ -34,7 +37,7 @@ You can also save the graph via code using one of the following functions.
 | bmp("mygraph.bmp")          | bmp file         |
 | postscript("mygraph.ps")    | postscript file  |
 
-# Built-in plots functions
+## Built-in plots functions
 Few ploting functions comes built-in when R installed. These can help do diffrent type of plots. Such as
   * Scater Plots
   * Dot Plots
@@ -48,23 +51,23 @@ plot(wt, mpg, main="Scatterplot Example",
    xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
 ```
   
-## Dot Plots
+### Dot Plots
 ```{r}
 dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,
    main="Gas Milage for Car Models",
    xlab="Miles Per Gallon")
 ```
 
-## Bar Plots
+### Bar Plots
 
-### Simple Bar Plot
+#### Simple Bar Plot
 ```{r}
 counts <- table(mtcars$gear)
 barplot(counts, main="Car Distribution",
    xlab="Number of Gears")
 ```
 
-### Stacked Bar Plot
+#### Stacked Bar Plot
 ```{r}
 counts <- table(mtcars$vs, mtcars$gear)
 barplot(counts, main="Car Distribution by Gears and VS",
@@ -72,7 +75,7 @@ barplot(counts, main="Car Distribution by Gears and VS",
   legend = rownames(counts))
 ```
 
-### Grouped Bar Plot
+#### Grouped Bar Plot
 ```{r}
 counts <- table(mtcars$vs, mtcars$gear)
 barplot(counts, main="Car Distribution by Gears and VS",
@@ -80,7 +83,7 @@ barplot(counts, main="Car Distribution by Gears and VS",
   legend = rownames(counts), beside=TRUE)
 ```
 
-## Pie Charts
+### Pie Charts
 
 ```{r}
 slices <- c(10, 12,4, 16, 8)
@@ -88,22 +91,22 @@ lbls <- c("US", "UK", "Australia", "Germany", "France")
 pie(slices, labels = lbls, main="Pie Chart of Countries")
 ```
 
-## Box Plots
+### Box Plots
 
-### Simple Boxplot
+#### Simple Boxplot
 ```{r}
 boxplot(mpg~cyl,data=mtcars, main="Car Milage Data",
    xlab="Number of Cylinders", ylab="Miles Per Gallon")
 ```
 
-### Notched Boxplot
+#### Notched Boxplot
 ```{r}
 boxplot(len~supp*dose, data=ToothGrowth, notch=TRUE,
   col=(c("gold","darkgreen")),
   main="Tooth Growth", xlab="Suppliment and Dose")
 ```
 
-# Customization
+## Customization
 Graphical parameters describes how to change a graph's symbols, fonts, colors, and lines. Axes and text describe how to customize a graph's axes, add reference lines, text annotations and a legend. Combining plots describes how to organize multiple plots into a single graph.
 
 ```{r}
@@ -116,7 +119,7 @@ legend("topright", inset=.05, title="Number of Cylinders",
    c("4","6","8"), fill=terrain.colors(3), horiz=TRUE)
 ```
 
-# Advance Ploting
+## Advance Ploting
 Refer the follwing link - https://www.statmethods.net/advgraphs/index.html
 
 ### Key Points { .session-end }
