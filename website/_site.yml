@@ -5,28 +5,16 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Introduction"
-      href: intro.html
     - text: "Sessions"
       menu:
         - text: "Session-1"
           href: session-1.html
         - text: "Session-2"
           href: session-2.html
-        - text: "Session-3"
-          href: session-3.html
-        - text: "Session-4"
-          href: session-4.html
-        - text: "Session-5"
-          href: session-5.html
     - text: "Practice"  
       menu:
         - text: "Exercises-1"
           href: exercises-1.html
-    - text: "Tests"
-      menu:
-        - text: "Test-1"
-          href: test-1_encrypted.html
   right:
     - text: "Run-R"
       href: run-R.html
