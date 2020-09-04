@@ -9,17 +9,17 @@ navbar:
       menu:
         - text: "Session-1"
           href: session-1.html
-        - text: "Session-2"
-          href: session-2.html
-    - text: "Practice"  
-      menu:
-        - text: "Exercises-1"
-          href: exercises-1.html
+    #     - text: "Session-2"
+    #       href: session-2.html
+    # - text: "Practice"  
+    #   menu:
+    #     - text: "Exercises-1"
+    #       href: exercises-1.html
   right:
     - text: "Run-R"
       href: run-R.html
-    - text: "Reference"
-      href: reference.html
+    # - text: "Reference"
+    #   href: reference.html
     - icon: fa-info-circle fa-lg
       href: index.html
 output:
@@ -29,11 +29,11 @@ output:
           before_body: style/before_body.html
           after_body: style/footer.html
     css: style/sessions.css
-    theme: cerulean
+    theme: cosmo
     highlight: tango
     toc: true
-    number_sections: false
-    toc_depth: 4
+    number_sections: true
+    toc_depth: 2
     toc_float:
-      collapsed: false
+      collapsed: true
       #smooth_scroll: false 

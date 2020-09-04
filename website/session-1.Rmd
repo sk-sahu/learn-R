@@ -6,110 +6,86 @@ title: "Session-1"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Aim { .session-start }
-* What is R
-* Why use R
-* Who use R
-* Getting Started with R
+### Session Aim { .session-start }
+* What and whys of R (15 min) 
+- Where and how to use R/R-studio (15 min)
+- Setting up and ready to dive in (15 min)
+- Starting with Data in R (15 min)
+- Manipulating, analysing and exporting data (30 min)
+- Hands on and doubts (30 min)
 
 # What is R?
 
-* A statistical programming environment
-    + based on 'S'
-    + suited to high-level data analysis
-* But offers much more than just statistics
-* Open source and cross platform
-* Extensive graphics capabilities
-* Diverse range of add-on packages
-* Active community of developers
-* Thorough documentation
+* R is **statistical programming language** that suited to do high-level data analysis.
+* But in recent times it offers much more than just statistics. For a simple example this website (Yes, this is completely built in R)
 
-http://www.r-project.org/
+# Why learn R?
 
-![R screenshot](images/R-project.png)
+We can do lot of stuffs in R. Starting from statistical analysis to plotting graphs and figures, Writing technical documentation to making a website and lot more. Lets explore.
 
-![New York Times, Jan 2009](images/NYTimes_R_Article.png)
+* R does not involve lots of pointing and clicking, and that’s a good thing.
+* R code is great for reproducibility
+* R is interdisciplinary and extensible
+* R works on data of all shapes and sizes
+* R produces high-quality graphics
+* R has a large and welcoming community
+* Not only is R free, but it is also open-source and cross-platform
 
-# Why R?
-
-We can do lot of stuffs in R. Starting from statestical analysis to plotting graphs and figures, Writing technical documentation to making a website and lot more. Lets explore.
-
-# R plotting capabilities
+## R plotting capabilities
 
 https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919
 ![R facebook](images/facebook-network.png)
 
-# Who uses R? Not just academics!
+## Who uses R? Not just academics!
 
 http://www.revolutionanalytics.com/companies-using-r
 
-- Facebook
-    + http://blog.revolutionanalytics.com/2010/12/analysis-of-facebook-status-updates.html
-- Google
-    + http://blog.revolutionanalytics.com/2009/05/google-using-r-to-analyze-effectiveness-of-tv-ads.html
-- Microsoft
-    + http://blog.revolutionanalytics.com/2014/05/microsoft-uses-r-for-xbox-matchmaking.html
-- New York Times
-    + http://blog.revolutionanalytics.com/2011/03/how-the-new-york-times-uses-r-for-data-visualization.html
-- Buzzfeed
-    + http://blog.revolutionanalytics.com/2015/12/buzzfeed-uses-r-for-data-journalism.html
-- New Zealand Tourist Board
-    + https://mbienz.shinyapps.io/tourism_dashboard_prod/
+- [Facebook](http://blog.revolutionanalytics.com/2010/12/analysis-of-facebook-status-updates.html)
+- [Google](http://blog.revolutionanalytics.com/2009/05/google-using-r-to-analyze-effectiveness-of-tv-ads.html)
+- [Microsoft](http://blog.revolutionanalytics.com/2014/05/microsoft-uses-r-for-xbox-matchmaking.html)
+- [New York Times](http://blog.revolutionanalytics.com/2011/03/how-the-new-york-times-uses-r-for-data-visualization.html)
+- [Buzzfeed](http://blog.revolutionanalytics.com/2015/12/buzzfeed-uses-r-for-data-journalism.html)
+- [New Zealand Tourist Board](https://mbienz.shinyapps.io/tourism_dashboard_prod/)
 
     
-# R can facilitate Reproducible Research
-
-![Sidney Harris - New York Times](images/SidneyHarris_MiracleWeb.jpg)
-
-
-
-
-- Statisticians at MD Anderson tried to reproduce results from a Duke paper and unintentionally unravelled a web of incompetence and skullduggery
-    + as reported in the ***New York Times***
-    
-![New York Times, July 2011](images/rep-research-nyt.png)
-
-
-
-- Very entertaining talk from Keith Baggerly in Cambridge, December 2010
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7gYIs7uYbMo" frameborder="0" allowfullscreen></iframe>
+## R can facilitate Reproducible Research
 
 According to recent editorials, the reproducibility crisis is still on-going
-
-![Nature, May 2016](images/rep-crisis.png)
-
 
 [Reality check on reproducibility](http://www.nature.com/news/reality-check-on-reproducibility-1.19961)
 
 [1,500 scientists lift the lid on reproducibility](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970)
 
+![Nature, May 2016](images/rep-crisis.png)
 
-# Getting started
 
-R can be done/executed using command line, or a graphical user interface (GUI). On this course, we use the RStudio GUI. Lets download required files and install. 
+## Community aroud R
 
-1. Get latest version of R from [CRAN](https://cran.r-project.org/)
-    + This will come will some base packages installed for general tasks.
-    + We can also download additional required packages from CRAN for specific tasks, Currently `r length(XML:::readHTMLTable("http://cran.r-project.org/web/packages/available_packages_by_date.html")[[1]][[2]])` available packages as of `r date()`
-2. Download RStudio from [here](https://www.rstudio.com/products/rstudio/download/#download)
-    
+| https://rladies.org | https://www.r-bloggers.com/ |
+| -------- | ---------- |
+| ![R Ladies logo](data:image/jpeg;base64,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) | ![R blogger's logo](https://www.r-bloggers.com/wp-content/uploads/2016/04/R_02_2016-05-01.png) |
 
-To launch RStudio, find the RStudio icon and click
+# Setting up 
 
-![RStudio screenshot](images/rstudio-windows.png)
+Where and How to do R?
 
-### Key Points { .session-end }
-* Vast Graphics control in R
-* Reproducibility can done with R
+R can be done/executed using command line, or a graphical user interface (GUI). On this session, we will use the RStudio GUI. 
 
-### Aim { .session-start }
-* Understanding Basic Data Types and Data Structures in R
+## R Homepage 
 
-#
-#
+http://www.r-project.org/
 
-## Data Type
+## R-Studio
+
+R-Studio cloud - https://rstudio.cloud/
+
+Lets understand the R-studio interface.
+
+# Getting started with Data in R
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSsrai1pRsCypU0nA2wRUBz3FXlUEgkAsvC-w&usqp=CAU)
+
+## Data Type in R
 
 To make the best of the R language, you'll need a strong understanding of the
 basic data types and data structures and how to operate on them.
@@ -118,101 +94,31 @@ Data structures are very important to understand because these are the objects y
 will manipulate on a day-to-day basis in R. Dealing with object conversions is one
 of the most common sources of frustration for beginners.
 
-**Everything** in R is an object.
+**Everything** in R is an object (Also we refer as variables)
 
-R has 6 basic data types. (In addition to the five listed below, there is also
-*raw* which will not be discussed in this session.)
+Formal data types - 
 
-* character
-* numeric (real or decimal)
-* integer
-* logical
-* complex
+* **character**: `"a"`, `"swc"` 
+* **numeric**: `2`, `15.5` 
+* **logical**: `TRUE`, `FALSE` 
+* integer: `2L` (the `L` tells R to store this as an integer) 
+* complex: `1+4i` (complex numbers with real and imaginary parts) 
 
-Elements of these data types may be combined to form data structures, such as
-atomic vectors. When we call a vector *atomic*, we mean that the vector only 
-holds data of a single data type. Below are examples of atomic character vectors,
-numeric vectors, integer vectors, etc.
+## Data Structure in R
 
-* **character**: `"a"`, `"swc"`
-* **numeric**: `2`, `15.5`
-* **integer**: `2L` (the `L` tells R to store this as an integer)
-* **logical**: `TRUE`, `FALSE`
-* **complex**: `1+4i` (complex numbers with real and imaginary parts)
-
-R provides many functions to examine features of vectors and other objects, for
-example
-
-* `class()` - what kind of object is it (high-level)?
-* `typeof()` - what is the object's data type (low-level)?
-* `length()` - how long is it? What about two dimensional objects?
-* `attributes()` - does it have any metadata?
-
-```{r}
-# Example
-x <- "biology"
-typeof(x)
-attributes(x)
-y <- 1:10
-y
-typeof(y)
-length(y)
-z <- as.numeric(y)
-z
-typeof(z)
-```
-
-## Data Structure
-
-R has many __data structures__. These include
-
-* atomic vector
+* **vectors** 
+* **matrix** 
+* **data-frame** 
 * list
-* matrix
-* data frame
 * factors
 
 ### Vectors
 
 A vector is the most common and basic data structure in R and is pretty much the
-workhorse of R. Technically, vectors can be one of two types:
-
-* atomic vectors
-* lists
-
-although the term "vector" most commonly refers to the atomic types not to lists.
-
-#### The Different Vector Modes
-
-A vector is a collection of elements that are most commonly of mode `character`,
-`logical`, `integer` or `numeric`.
-
-You can create an empty vector with `vector()`. (By default the mode is
-`logical`. You can be more explicit as shown in the examples below.) It is more
-common to use direct constructors such as `character()`, `numeric()`, etc.
+workhorse of R.
 
 ```{r}
-vector() # an empty 'logical' (the default) vector
-vector("character", length = 5) # a vector of mode 'character' with 5 elements
-character(5) # the same thing, but using the constructor directly
-numeric(5)   # a numeric vector with 5 elements
-logical(5)   # a logical vector with 5 elements
-```
-
-You can also create vectors by directly specifying their content. R will then
-guess the appropriate mode of storage for the vector. For instance:
-
-```{r}
-x <- c(1, 2, 3)
-```
-
-will create a vector `x` of mode `numeric`. These are the most common kind, and
-are treated as double precision real numbers. If you wanted to explicitly create
-integers, you need to add an `L` to each element (or *coerce* to the integer
-type using `as.integer()`).
-
-```{r}
-x1 <- c(1L, 2L, 3L)
+x <- c(1, 2, 3) #numeric
 ```
 
 Using `TRUE` and `FALSE` will create a vector of mode `logical`:
@@ -229,14 +135,12 @@ z <- c("Sarah", "Tracy", "Jon")
 
 #### Examining Vectors
 
-The functions `typeof()`, `length()`, `class()` and `str()` provide useful
+The functions `typeof()`, `length()` provide useful
 information about your vectors and R objects in general.
 
 ```{r}
 typeof(z)
 length(z)
-class(z)
-str(z)
 ```
 
 #### Adding Elements
@@ -285,73 +189,11 @@ anyNA(x)
 anyNA(y)
 ```
 
-#### Other Special Values
-
-`Inf` is infinity. You can have either positive or negative infinity.
-
-```{r}
-1/0
-```
-
-`NaN` means Not a Number. It's an undefined value.
-
-```{r}
-0/0
-```
-
-#### What Happens When You Mix Types Inside a Vector?
-
-R will create a resulting vector with a mode that can most easily accommodate
-all the elements it contains. This conversion between modes of storage is called
-"coercion". When R converts the mode of storage based on its content, it is
-referred to as "implicit coercion". For instance, can you guess what the
-following do (without running them first)?
-
-```{r}
-xx <- c(1.7, "a")
-xx <- c(TRUE, 2)
-xx <- c("a", TRUE)
-```
-
-You can also control how vectors are coerced explicitly using the
-`as.<class_name>()` functions:
-
-```{r}
-as.numeric("1")
-as.character(1:2)
-```
-
-> **Finding Commonalities**
->
-> Do you see a property that's common to all these vectors above?
-> 
-> > **Solution**  
-> > All vectors are one-dimensional and each element is of the same type.
-
-#### Objects Attributes
-
-Objects can have __attributes__. Attributes are part of the object. These include:
-
-* names
-* dimnames
-* dim
-* class
-* attributes (contain metadata)
-
-You can also glean other attribute-like information such as length (works on
-vectors and lists) or number of characters (for character strings).
-
-```{r}
-length(1:10)
-nchar("Software Carpentry")
-```
-
 ### Matrix
 
-In R matrices are an extension of the numeric or character vectors. They are not
-a separate type of object but simply an atomic vector with dimensions; the
-number of rows and columns. As with atomic vectors, the elements of a matrix must
-be of the same data type.
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJO4UARJDX75h8uYZu-30093F7Zx6-AHCGrw&usqp=CAU)
+
+In R matrices are an extension of the numeric or character vectors. Having rows and columns. As with atomic vectors, the elements of a matrix must be of the same data type.
 
 ```{r}
 m <- matrix(nrow = 2, ncol = 2)
@@ -359,66 +201,14 @@ m
 dim(m)
 ```
 
-You can check that matrices are vectors with a class attribute of `matrix` by using
-`class()` and `typeof()`.
-
-```{r}
-m <- matrix(c(1:3))
-class(m)
-typeof(m)
-```
-
-While `class()` shows that m is a matrix, `typeof()` shows that fundamentally the
-matrix is an integer vector.
-
-> **Data types of matrix elements **
-> 
-> Consider the following matrix:
-> 
-> ```{r matrix-typeof}
-> FOURS <- matrix(
->   c(4, 4, 4, 4),
->   nrow = 2,
->   ncol = 2)
-> ```
->
-> Given that `typeof(FOURS[1])` returns `"double"`, what would you expect
-> `typeof(FOURS)` to return? How do you know this is the case even without
-> running this code?
->
-> *Hint* Can matrices be composed of elements of different data types?
-> 
-> > **Solution**  
-> > We know that `typeof(FOURS)` will also return `"double"` since matrices 
-> > are made of elements of the same data type. Note that you could do 
-> > something like `as.character(FOURS)` if you needed the elements of `FOURS` 
-> > *as characters*.
-> 
-
-Matrices in R are filled column-wise.
+Content of a matrix - 
 
 ```{r}
 m <- matrix(1:6, nrow = 2, ncol = 3)
+m
 ```
 
-Other ways to construct a matrix
-
-```{r}
-m      <- 1:10
-dim(m) <- c(2, 5)
-```
-
-This takes a vector and transforms it into a matrix with 2 rows and 5 columns.
-
-Another way is to bind columns or rows using `rbind()` and `cbind()` ("row bind"
-and "column bind", respectively).
-
-```{r}
-x <- 1:3
-y <- 10:12
-cbind(x, y)
-rbind(x, y)
-```
+Note - Matrices in R are filled column-wise.
 
 You can also use the `byrow` argument to specify how the matrix is filled.
 From R's own documentation:
@@ -431,117 +221,16 @@ mdat <- matrix(c(1, 2, 3, 11, 12, 13),
 mdat
 ```
 
-Elements of a matrix can be referenced by specifying the index along each
-dimension (e.g. "row" and "column") in single square brackets.
-
-```{r}
-mdat[2, 3]
-```
-
-### List
-
-In R lists act as containers. Unlike atomic vectors, the contents of a list are
-not restricted to a single mode and can encompass any mixture of data
-types. Lists are sometimes called generic vectors, because the elements of a
-list can by of any type of R object, even lists containing further lists. This
-property makes them fundamentally different from atomic vectors.
-
-A list is a special type of vector. Each element can be a different type.
-
-Create lists using `list()` or coerce other objects using `as.list()`. An empty
-list of the required length can be created using `vector()`
-
-```{r}
-x <- list(1, "a", TRUE, 1+4i)
-x
-x <- vector("list", length = 5) # empty list
-length(x)
-```
-
-The content of elements of a list can be retrieved by using double square brackets.
-
-```{r}
-x[[1]]
-```
-
-Vectors can be coerced to lists as follows:
-
-```{r}
-x <- 1:10
-x <- as.list(x)
-length(x)
-```
-
-> **Examining Lists **
->
-> 1. What is the class of `x[1]`?
-> 2. What is the class of `x[[1]]`?
-> 
-> > **Solution**    
-> > 1. 
-> >     ```{r examine-lists-1}
-> >     class(x[1])
-> >     ```
-> > 2. 
-> >     ```{r examine-lists-2}
-> >     class(x[[1]])
-> >     ```
-
-Elements of a list can be named (i.e. lists can have the `names` attribute)
-
-```{r}
-xlist <- list(a = "Karthik Ram", b = 1:10, data = head(iris))
-xlist
-names(xlist)
-```
-
-> **Examining Named Lists **
->
-> 1. What is the length of this object?
-> 2. What is its structure?
-> 
-> > **Solution**    
-> > 1. 
-> >     ```{r examine-named-lists-1}
-> >     length(xlist)
-> >     ```
-> > 2. 
-> >     ```{r examine-named-lists-2}
-> >     str(xlist)
-> >     ```
-> {: .solution}
-{: .challenge} 
-Lists can be extremely useful inside functions. Because the functions in R are 
-able to return only a single object, you can "staple" together lots of different
-kinds of results into a single object that a function can return.
-
-A list does not print to the console like a vector. Instead, each element of the
-list starts on a new line.
-
-Elements are indexed by double brackets. Single brackets will still return
-another list. If the elements of a list are named, they can be referenced by
-the `$` notation (i.e. `xlist$data`).
-
-
 ### Data Frame
 
 A data frame is a very important data type in R. It's pretty much the *de facto*
 data structure for most tabular data and what we use for statistics.
 
-A data frame is a *special type of list* where every element of the list has same
-length (i.e. data frame is a "rectangular" list).
-
-Data frames can have additional attributes such as `rownames()`, which can be
-useful for annotating data, like `subject_id` or `sample_id`. But most of the
-time they are not used.
-
 Some additional information on data frames:
 
 * Usually created by `read.csv()` and `read.table()`, i.e. when importing the data into R.
-* Assuming all columns in a data frame are of same type, data frame can be converted to a matrix with data.matrix() (preferred) or as.matrix(). Otherwise type coercion will be enforced and the results may not always be what you expect.
 * Can also create a new data frame with `data.frame()` function.
 * Find the number of rows and columns with `nrow(dat)` and `ncol(dat)`, respectively.
-* Rownames are often automatically generated and look like 1, 2, ..., n. Consistency in numbering of rownames may not be honored when rows are reshuffled or subset.
 
 #### Creating Data Frames by Hand
 
@@ -564,11 +253,6 @@ dat
 > * `sapply(dataframe, class)` - shows the class of each column in the data frame
 {: .callout}
 See that it is actually a special list:
-
-```{r}
-is.list(dat)
-class(dat)
-```
 
 Because data frames are rectangular, elements of data frame can be referenced by specifying 
 the row and the column index in single square brackets (similar to matrix).
@@ -593,39 +277,9 @@ R in relation to diversity of data types they can contain.
 | 1-D | atomic vector | list |
 | 2-D | matrix | data frame |
 
-> Lists can contain elements that are themselves muti-dimensional (e.g. a lists can contain
-> data frames or another type of objects). Lists can also contain elements of any length,
-> therefore list do not necessarily have to be "rectangular". However in order for the list
-> to qualify as a data frame, the length of each element has to be the same. 
-{: .callout}
-> **Column Types in Data Frames **
->
-> Knowing that data frames are lists, can columns be of different type?
->
-> What type of structure do you expect to see when you explore the structure of the `iris` data frame? Hint: Use `str()`.
-> 
-> > **Solution**    
-> > The Sepal.Length, Sepal.Width, Petal.Length and Petal.Width columns are all
-> > numeric types, while Species is a Factor.
-> > Lists can have elements of different types.
-> > Since a Data Frame is just a special type of list, it can have columns of
-> > differing type (although, remember that type must be consistent within each column!).
-> > ```{r column-types}
-> > str(iris)
-> > ```
+# Steps to Basic Data Analysis
 
-### Key Points { .session-end }
-* Use `typeof()` and `class()` to know a object type and its class
-* Remember `[row, column]`
-
-### Aim { .session-start }
-* Reading tabular data to R
-* data analysis
-
-#
-#
-
-## Steps to Basic Data Analysis
+![](data:image/jpeg;base64,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)
 
 - In this short section, we show how the data manipulation steps we have just seen can be used as part of an analysis pipeline:
 
@@ -636,28 +290,37 @@ R in relation to diversity of data types they can contain.
     + Manipulating & reshaping the data
         + perhaps dealing with "missing data"
     + Any maths you like
-    + Diagnostic Plots
+    + Plots
 3. Writing out results
     + `write.table()`
     + `write.csv()`
   
-## A simple walk-through
+## A simple walk-through of data
 
-- We have data from 100 patients that given consent for their data to use in future studies
-- A researcher wants to undertake a study involving people that are overweight
-- We will walk-through how to filter the data and write a new file with the candidates for the study    
-    
-## The Working Directory (wd)
+Lets consider this example - We are investigating the animal species diversity and weights found within plots at our study
+site. The dataset is stored as a comma separated value (CSV) file.
+Each row holds information for a single animal, and the columns represent:
 
+| Column           | Description                        |
+|------------------|------------------------------------|
+| record\_id       | Unique id for the observation      |
+| month            | month of observation               |
+| day              | day of observation                 |
+| year             | year of observation                |
+| plot\_id         | ID of a particular plot            |
+| species\_id      | 2-letter code                      |
+| sex              | sex of animal ("M", "F")           |
+| hindfoot\_length | length of the hindfoot in mm       |
+| weight           | weight of the animal in grams      |
+| genus            | genus of animal                    |
+| species          | species of animal                  |
+| taxon            | e.g. Rodent, Reptile, Bird, Rabbit |
+| plot\_type       | type of plot                       |
 
-- Like many programs R has a concept of a working directory 
-- It is the place where R will look for files to execute and where it will
-save files, by default
-- For this course we need to set the working directory to the location
-of the course scripts
-- In R Studio use the mouse and browse to the directory where you saved the Course Materials
-
-- ***Session → Set Working Directory → Choose Directory...***
+```{r, eval=FALSE, purl=TRUE}
+download.file(url = "https://ndownloader.figshare.com/files/2292169",
+              destfile = "portal_data_joined.csv")
+```
 
 ## Locate the data
 
@@ -665,7 +328,8 @@ Before we even start the analysis, we need to be sure of where the data are loca
 
 - Functions that import data need a file location as a character vector
 - The default location is the ***working directory***
-```{r}
+
+```{r, eval=FALSE}
 getwd()
 ```
 
@@ -679,218 +343,115 @@ list.files()
     + a good sanity check for your code
 
 ```{r}
-file.exists("data/patient-info.txt")
+file.exists("portal_data_joined.csv")
 ```
 
-- Otherwise you need the *path* to the file
-    + you can get this using **`file.choose()`**
-    
-- If you unsure about specifying a file path at the command line, this [online tutorial](http://rik.smith-unna.com/command_line_bootcamp/?id=vczhybjhtyt) will give you hands-on practice
-    
-## Read in the data
+## Load the data into a R dataframe
 
-- The data are a tab-delimited file. Each row is a record, each column is a field. Columns are separated by tabs in the text
-- We need to read in the results and assign it to an object (`patients`)
-
-```{r}
-patients <- read.delim("data/patient-info.txt")
+```{r, eval=TRUE,  purl=FALSE}
+surveys <- read.table("portal_data_joined.csv", header = T, sep = ",")
+head(surveys)
 ```
 
-In the latest RStudio, there is the option to import data directly from the File menu. ***File*** -> ***Import Dataset*** -> ***From Csv***
+Get to know a function
 
-- If the data are comma-separated, then use either the argument `sep=","` or the function `read.csv()`:
-- You need to make sure you use the correct function
-    + can you explain the output of the following lines of code?
-
-```{r }
-tmp <- read.csv("data/patient-info.txt")
-head(tmp)
-```
-
-- For full list of arguments:
 ```{r, eval=FALSE}
-?read.table
+?read.table # or Fn+F1
 ```
 
-## Check the data
-- *Always* check the object to make sure the contents and dimensions are as you expect
-- R will sometimes create the object without error, but the contents may be un-usable for analysis
-    + If you specify an incorrect separator, R will not be able to locate the columns in your data, and you may end up with an object with just one column
-    
-```{r}
-# View the first 10 rows to ensure import is OK
-patients[1:10,]  
-```
+## How to quickly explore the data 
 
-
-- or use the `View()` function to get a display of the data in RStudio:
-```{r, eval=FALSE}
-View(patients)
-```
-
-## Understanding the object
-
-- Once we have read the data successfully, we can start to interact with it
-- The object we have created is a *data frame*:
-```{r}
-class(patients)
-```
-
-- We can query the dimensions:
+Check the dimensions:
 
 ```{r}
-ncol(patients)
-nrow(patients)
-dim(patients)
+ncol(surveys)
+nrow(surveys)
+dim(surveys)
 ```
 
-
-- The names of the columns are automatically assigned:
+The names of the columns are automatically assigned:
 
 ```{r}
-colnames(patients)
+colnames(surveys)
 ```
 
-- We can use any of these names to access a particular column:
-    + and create a vector
-    + TOP TIP: type the name of the object and hit TAB: you can select the column from the drop-down list!
-```{r}
-patients$ID
+1. What is the class of the object surveys?
+2. How many rows and how many columns are in this object?
+3. How many species have been recorded during these surveys?
+
+```{r, eval=TRUE,  purl=FALSE}
+str(surveys)
 ```
-
-## Word of warning
-
-
-![](images/tolstoy.jpg)
-
-
-
-![](images/hadley.jpg)
-
-> Like families, tidy datasets are all alike but every messy dataset is messy in its own way - (Hadley Wickham - RStudio chief scientist and author of dplyr, ggplot2 and others)
-You will make your life a lot easier if you keep your data **tidy** and ***organised***. Before blaming R, consider if your data are in a suitable form for analysis. The more manual manipulation you have done on the data (highlighting, formulas, copy-and-pasting), the less happy R is going to be to read it. Here are some useful links on some common pitfalls and how to avoid them
-
-- http://www.datacarpentry.org/spreadsheet-ecology-lesson/
-- http://kbroman.org/dataorg/
-
-## Handling missing values
-
-- The data frame contains some **`NA`** values, which means the values are missing – a common occurrence in real data collection
-- `NA` is a special value that can be present in objects of any type (logical, character, numeric etc)
-- `NA` is not the same as `NULL`:
-    - `NULL` is an empty R object. 
-    - `NA` is one missing value within an R object (like a data frame or a vector)
-- Often R functions will handle `NA`s gracefully:
+4. List out species
 
 ```{r}
-length(patients$Height)
-mean(patients$Height)
+unique(surveys$species)
 ```
 
-- However, sometimes we have to tell the functions what to do with them. 
-- R has some built-in functions for dealing with `NA`s, and functions often have their own arguments (like `na.rm`) for handling them:
-    + annoyingly, different functions have different argument names to change their behavior with regards to `NA` values. *Always check the documentation*
+
+Lets learn indexing
+
+```{r, eval=F}
+# first element in the first column of the data frame (as a vector)
+surveys[1, 1]   
+# first element in the 6th column (as a vector)
+surveys[1, 6]   
+# first column of the data frame (as a vector)
+surveys[, 1]    
+# first column of the data frame (as a data.frame)
+surveys[1]   
+# The whole data frame, except the first column
+surveys[, -1]
+# first five
+surveys[1:5, ]
+```
+
+By name
+
+```{r, eval=F}
+surveys["species_id"]
+surveys$species_id   
+```
+
+
+## ploting
+
+Check hight frequency
 
 ```{r}
-mean(patients$Height, na.rm = TRUE)
-mean(na.omit(patients$Height))
+hist(surveys$weight)
 ```
-
-## Analysis
-
-- Our analysis involves identifying patients with extreme BMI
-    + we will define this as being two standard deviations from the mean
 
 ```{r}
-# Create an index of results:
-BMI <- (patients$Weight)/((patients$Height/100)^2)
-upper.limit <- mean(BMI,na.rm = TRUE) + 2*sd(BMI,na.rm = TRUE)
-upper.limit
+plot(surveys$weight, surveys$hindfoot_length)
 ```
-
-
-- We can plot a simple chart of the BMI values 
-    + add a vertical line to indicate the cut-off
-    + plotting will be covered in detail shortly..
 
 ```{r}
-plot(BMI)
-# Add a horizonal line:
-abline(h=upper.limit) 
+library(ggplot2)
+ggplot(data = surveys, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point(alpha = 0.1, aes(color = species))
 ```
 
-- It is also useful to save the variable we have computed as a new column in the data frame
+
+
+## Add a new variable 
 
 ```{r}
-round(BMI,1)
-patients$BMI <- round(BMI,1)
-head(patients)
+library("lubridate")
+surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
 ```
 
-- To actually select the candidates we can use a logical expression to test the values of the BMI vector being greater than the upper limit
-    + if the second line looks a bit weird, remember that `<-` is doing an assignment. The value we are assigning to our new variable is the logical (`TRUE` or `FALSE`) vector given by testing each item in `BMI` against the `upper.limit`
-    
-```{r}
-BMI > upper.limit
-candidates <- BMI > upper.limit
-```
-
-We have seen that a logical vector can be used to subset a data frame
-
-- However, in our case the result looks a bit funny
-- Can you think why this might be?
+## Get summary of date
 
 ```{r}
-patients[candidates,]
+summary(surveys$date)
 ```
 
-The `which` function will take a logical vector and return the indices of the `TRUE` values
-
-- This can then be used to subset the data frame
-
-```{r}
-which(BMI > upper.limit)
-candidates <- which(BMI > upper.limit)
-```
+## Export the data 
 
 
-## Outputting the results
-
-- We write out a data frame of candidates (patients with BMI more than standard deviations from the mean) as a 'comma separated values' text file (CSV):
-
-```{r}
-write.csv(patients[candidates,], file="outputs/selectedSamples.csv")
-```
-
-- The output file is directly-readable by Excel
-- It's often helpful to double check where the data has been saved. Use the *get working directory* function:
-
-```{r eval=FALSE}
-getwd()      # print working directory
-list.files() # list files in working directory
+```{r, eval=F}
+write.table(surveys, "portal_data_joined_with_date.csv")
 ```
 
 
-To recap, the set of R commands we have used is:-
-
-```{r}
-patients <- read.delim("data/patient-info.txt")
-BMI <- (patients$Weight)/((patients$Height/100)^2)
-upper.limit <- mean(BMI,na.rm = TRUE) + 2*sd(BMI,na.rm = TRUE)
-plot(BMI)
-# Add a horizonal line:
-abline(h=upper.limit) 
-patients$BMI <- round(BMI,1)
-candidates <- which(BMI > upper.limit)
-write.csv(patients[candidates,], file="outputs/selectedSamples.csv")
-```
-
-## Exercise: Exercise 3
-
-- A separate study is looking for patients that are underweight and also smoke; 
-  + Modify the condition in our previous code to find these patients
-  + e.g. having BMI that is 2 standard deviations *less* than the mean BMI
-  + Write out a results file of the samples that match these criteria, and open it in a spreadsheet program
-
-### Key Points { .session-end }
-* Import data using `read.table()`
