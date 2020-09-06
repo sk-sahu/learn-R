@@ -9,12 +9,12 @@ navbar:
       menu:
         - text: "Session-1"
           href: session-1.html
-    #     - text: "Session-2"
-    #       href: session-2.html
-    # - text: "Practice"  
-    #   menu:
-    #     - text: "Exercises-1"
-    #       href: exercises-1.html
+        - text: "Session-2"
+          href: session-2.html
+    - text: "Practice"
+      menu:
+        - text: "Exercises-1"
+          href: exercises-1.html
   right:
     - text: "Run-R"
       href: run-R.html

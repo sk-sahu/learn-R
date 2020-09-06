@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Run baseR">
+<html>
+  <head>
+  	<!-- OpenCPU client library -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdn.opencpu.org/opencpu-0.4.js"></script>
+
+  </head>
+
+  <body>
+	<h1>Run base R functions</h1>
+
+	<textarea id="input" rows="4" cols="50">
+x = rnorm(1000)
+plot(x)
+mean(x)
+	</textarea> 
+
+	<br /> <button id="submitbutton" type="button">Call R</button>
+
+	<pre><code id="output"></code></pre>
+  </body>
+  <script>
+  		//because identity is in base
+		ocpu.seturl("//public.opencpu.org/ocpu/library/base/R")
+
+		//actual handler
+		$("#submitbutton").on("click", function(){
+
+		    //arguments
+		    var mysnippet = new ocpu.Snippet($("#input").val());
+		    
+		    //disable button
+		    $("button").attr("disabled", "disabled");
+
+		    //perform the request
+		    var req = ocpu.call("identity", {
+		        "x" : mysnippet
+		    }, function(session){
+		        session.getConsole(function(outtxt){
+		            $("#output").text(outtxt); 
+		        });
+		    });
+		        
+		    //if R returns an error, alert the error message
+		    req.fail(function(){
+		        alert("Server error: " + req.responseText);
+		    });      
+		    
+		    req.always(function(){
+		        $("button").removeAttr("disabled");    
+		    });
+		});    
+  	</script>
+</html>
