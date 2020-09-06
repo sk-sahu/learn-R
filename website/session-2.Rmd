@@ -8,10 +8,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Aim { .session-start }
 
+- Create reproducible report (HTML, PDF)
 - Application of R in ecology with example
 - Packages in R
 - Plotting in R
 
+# Rmarkdown
+
+Lets discuss reproducible report.
 
 # Ecology applications 
 
