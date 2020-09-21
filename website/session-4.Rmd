@@ -3,34 +3,31 @@ title: "Session-4"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning=F, cache = T)
 ```
 
 ### Aim { .session-start }
 * Learn about packages in R
 * Use Bioconductor
 
-#
-#
-
-## Packages
+# Packages
 
 Packages are collection of several functions in R.
 
 To use a perticular function from a package, it need to be downloaded and loaded.
 
-### Install a package from CRAN
+## Install a package from CRAN
 ```{r, eval=FALSE}
 # download and install 'ggplot2' package from CRAN
 install.packages("ggplot2")
 ```
 
-### Introduction to Bioconductor
+## Introduction to Bioconductor
 Bioconductor is a collection of more than 1,500 packages for the statistical analysis and comprehension of high-throughput genomic data. Originally developed for microarrays, Bioconductor packages are now used in a wide range of analyses, including bulk and single-cell RNA-seq, ChIP seq, copy number analysis, microarray methylation and classic expression analysis, flow cytometry, and many other domains.
 
 This session introduces the essential of Bioconductor package discovery, installation, and use.
 
-### Use Biocondutor
+## Use Biocondutor
 Discovering, installing, and learning how to use Bioconductor packages.
 
 The web site at https://bioconductor.org contains descriptions of all Bioconductor packages, as well as essential reference material for all levels of user.
@@ -41,61 +38,359 @@ install.packages("BiocManager")
 BiocManager::install(c("rtracklayer", "GenomicRanges"))
 ```
 
-## Usecase
-Lets see how to do diffrential expression analysis using Biocondutor package called `DESeq2`
+# Application: RNASeq DGE Analysis
 
-Get the required files using `wget` in terminal.
-```{bash, eval=FALSE}
-# RAW Read Count Matrix
-wget https://raw.githubusercontent.com/sk-sahu/learn-R/master/data/airway_count_matrix.txt
-# Meta Data
-wget https://raw.githubusercontent.com/sk-sahu/learn-R/master/data/airway_metadata.txt
+RNA sequencing (RNA-seq) has proven as a revolutionary tool since the time it has been introduced. The throughput, accuracy, and resolution of data produced with RNA-seq has been instrumental in the study of Transcriptomics in the last decade (Wang, Gerstein, and Snyder 2009). There are many applications of Transcriptomics data, today we going to discuss Differential Gene Expression (DGE) which is wildly used to study the expression pattern of genes in contrasting samples.
+
+Most of the steps of RNA-seq analysis have become quite mature over the years, especially how to reach a read count table from raw fastq reads obtained from an Illumina sequencing run. We will demonstrate how to process the count table, make a case-control differential expression analysis, and do some downstream functional enrichment analysis.
+
+
+## About the data
+
+For this exercise purpose we will be using the RNA-seq count table from a colorectal cancer study (SRA: [SRP029880](https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP029880), collected from recount2 database), only protein coding genes were kept for the faster execution of the analysis. 
+
+Get to know the data
+
+* [RAW count data](data/SRP029880.raw_counts.tsv)
+* [Metadata](data/SRP029880.colData.tsv)
+
+## Download the data
+
+```{r download_data, eval=F}
+dir.create("data")
+download.file(url = "https://github.com/bionivid-tech/r-workshop-sep-2020/raw/master/data/SRP029880.raw_counts.tsv", 
+              destfile = "data/SRP029880.raw_counts.tsv")
+download.file(url = "https://github.com/bionivid-tech/r-workshop-sep-2020/raw/master/data/SRP029880.colData.tsv",
+              destfile = "data/SRP029880.colData.tsv")
 ```
 
-This above is derived from Bioconductor experimental data [`airway` package](https://bioconductor.org/packages/release/data/experiment/html/airway.html). Which is a part [this](http://www.ncbi.nlm.nih.gov/pubmed/24926665) publication.
 
-General commands to run DESeq2
-```{r, eval=FALSE}
-# Install DESeq2
-BiocManager::install("DESeq2")
-# Set Working Directory
-setwd("your/working/dir/path")
-# Import data
-count_data <- read.table("reads_counts_matrix.txt", header = TRUE, row.names = 1)
-metadata <- read.table("metadata.txt", header = TRUE, row.names = 1)
-# Check data
-all(rownames(metadata) == colnames(count_data))
-# Built DESeq Object
-dds <- DESeqDataSetFromMatrix(countData = count_data,
-                              colData = metadata,
-                              design = ~ conditions)
-# Filter low reads counts
-keep <- rowSums(counts(dds)) >= 10
-dds <- dds[keep,]
-# Run Diffrential Analysis
-dds <- DESeq(dds, parallel = FALSE)
-# Results
-res <- results(dds)
-# Visulaize Results
-plotMA(res)
-abline(h=c(-1,1), col="dodgerblue", lwd=2)
-# filter only significant genes (padj <= )
-res_sig <- subset(res, padj <= 0.05)
-# export the significant results to a file
-write.csv(res_sig, "DE_results.csv")
+## Get data into R
 
-# Normalization and Visulaization
-## log-transcformation
+Reading tabular in R.
+
+```{r get_data_T}
+counts <- read.table("data/SRP029880.raw_counts.tsv", sep = "\t", header = T, row.names = 1)
+head(counts)
+metadata <- read.table("data/SRP029880.colData.tsv", sep = "\t", header = T, row.names = 1)
+metadata
+```
+
+
+## Normalization the data
+
+In RNA-Seq, there are different type of normalization methods (such as - CPM, FPKM/RPKM, TPM) and some other method/package specific (Such as in DESeq2 - VST). Today we will calculate CPM and RPKM manually.
+
+### CPM
+
+Counts per million (CPM) mapped reads are counts scaled by the number of fragments you sequenced (N) times one million. This unit is related to the FPKM without length normalization and a factor of 10^3 [Ref](https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/)
+
+
+```{r cpm}
+library(edgeR)
+raw_counts <- subset(counts, select = c(-width))
+cpm <- cpm.default(raw_counts)
+head(cpm)
+```
+
+### RPKM
+
+Reads per kilobase of exon per million reads mapped (RPKM), or the more generic FPKM (substitute reads with fragments) are essentially the same thing. Contrary to some misconceptions, FPKM is not 2 * RPKM if you have paired-end reads. FPKM == RPKM if you have single-end reads, and saying RPKM when you have paired-end reads is just weird, so don’t do it :). [Ref](https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/)
+
+
+```{r rpkm}
+# create a vector of gene lengths 
+geneLengths <- as.vector(subset(counts, select = c(width)))
+# compute rpkm 
+rpkm <- apply(X = subset(counts, select = c(-width)), 
+                         MARGIN = 2, 
+                         FUN = function(x) 10^9 * x / geneLengths / sum(as.numeric(x)))
+options(scipen=999) # to off scientific notion of numbers
+rpkm <- do.call(cbind, rpkm)
+options(scipen=0, digits=7) # on again back
+  
+head(rpkm)
+```
+
+## Quality check of samples
+
+For quality check of samples we can do several studies such as PCA and Correlation.
+
+### PCA
+
+Principal Compound analysis on samples.
+
+```{r pca}
+#transpose the matrix 
+cpm_t <- t(cpm)
+# transform the counts to log2 scale 
+cpm_log <- log2(cpm_t + 1)
+# calculate pca
+pca <- prcomp(cpm_log)
+summary(pca)
+```
+
+#### Plot PCA
+
+Replicates should cluster together.
+
+knitr::opts_chunk$set(echo = TRUE, warning=F, cache = F)
+
+```{r pca_plot}
+library(ggplot2)
+library(ggfortify)
+sample_pca <- autoplot(pca, data = metadata, colour = 'group')
+sample_pca
+```
+
+### Correlation
+
+Sample to sample relation.
+
+```{r cor}
+cor <- cor(cpm)
+knitr::kable(cor)
+```
+
+#### Correlation Plot
+
+```{r cor_plot}
+library(corrplot)
+sample_cor <- corrplot(cor, order = 'hclust', addCoef.col = 'white', addrect = 2)
+```
+
+#### Sample heatmap
+
+Sample heatmap with annotation
+
+```{r cor_heatmap}
+library(pheatmap)
+sample_heatmap <- pheatmap(cor, annotation_col = metadata)
+```
+
+## DEG Analsysis
+
+Make the data ready.
+
+```{r count_data}
+#remove the 'width' column
+countdata <- as.matrix(subset(counts, select = c(-width)))
+head(countdata)
+```
+
+```{r meta_data}
+metadata
+```
+
+Load the data into DESeq2 Object and design the experiment
+
+```{r deseq_matrix_F, eval=F}
+library(DESeq2)
+dds <- DESeqDataSetFromMatrix(countData = countdata, 
+                              colData = metadata, 
+                              design = ~ group) # experiment design
+dds
+```
+
+```{r deseq_matrix_T, echo=F}
+suppressPackageStartupMessages(library(DESeq2))
+dds <- DESeqDataSetFromMatrix(countData = countdata, 
+                              colData = metadata, 
+                              design = ~ group)
+dds
+```
+
+Remove genes with almost no information in any of the given samples.
+
+```{r remove_genes}
+#For each gene, we count the total number of reads for that gene in all samples 
+#and remove those that don't have at least 1 read. 
+dds <- dds[ rowSums(counts(dds)) > 1, ]
+```
+
+### Run the analysis
+
+```{r run_deseq2}
+dds <- DESeq(dds) # the only time taking step. 
+dds
+```
+
+### Explore results
+
+```{r results}
+#compute the contrast for the 'group' variable where 'CTRL' samples are used as the control group. 
+res = results(dds, contrast = c("group", 'CASE', 'CTRL'))
+head(res)
+```
+
+```{r res_sort}
+#sort results by increasing p-value
+res <- res[order(res$pvalue),]
+res
+```
+
+
+### MA plot
+
+```{r ma_plot}
+DESeq2::plotMA(object = dds, ylim = c(-5, 5))
+```
+
+### P-value distribution
+
+```{r p_val_dist}
+ggplot(data = as.data.frame(res), aes(x = pvalue)) + geom_histogram(bins = 100)
+```
+
+### PCA 
+
+For deseq normalized 
+
+```{r pca_norm}
 rld <- rlog(dds)
-## Box-plot
-boxplot(log2(count_matrix), ylab="Log2(Read Count)", main = "Before Normalization",las=2)
-boxplot(assay(rld), ylab="rlog transformation", main = "Before Normalization",las=2)
-## PCA-plot
-plotPCA(rld, intgroup=c("cell", "dex"))
-## Expression Heatmap for 50 significant genes
-sig_gene_list <- rownames(res_sig)[1:500]
-heatmap(assay(rld)[sig_gene_list, ])
+plotPCA(rld, ntop = 500, intgroup = 'group')
 ```
+
+### Box plot
+
+For deseq normalized 
+
+```{r box_norm}
+par(mfrow = c(1, 2))
+boxplot(log(countdata), 
+        col = as.numeric(as.factor(metadata$group)), 
+        main = 'Raw Counts')
+boxplot(log(counts(dds, normalized = TRUE)), 
+        col = as.numeric(as.factor(metadata$group)), 
+        main = 'Normalized Counts')
+```
+
+### DGE Volcano plot
+
+```{r dge_volcano}
+library(EnhancedVolcano)
+EnhancedVolcano(res,
+    lab = rownames(res),
+    x = 'log2FoldChange',
+    y = 'pvalue',
+    title = "CASE vs CTRL",
+    pCutoff = 0.05,
+    FCcutoff = 2,
+    pointSize = 3.0,
+    labSize = 3.0)
+```
+
+### Extract results
+
+Extract the DGE to make heatmap
+
+```{r extrcat_res}
+library(dplyr)
+library(tibble)
+library(magrittr)
+res_up <- res %>% as.data.frame() %>% 
+  rownames_to_column('gene') %>%
+  filter(log2FoldChange >= 2) %>% 
+  mutate(reg_type = "Up regulation") %>% 
+  column_to_rownames('gene')
+head(res_up)
+res_down <- res %>% as.data.frame() %>% 
+  rownames_to_column('gene') %>%
+  filter(log2FoldChange <= -2) %>% 
+  mutate(reg_type = "Down regulation") %>% 
+  column_to_rownames('gene')
+head(res_down)
+res_filt <- rbind(res_up, res_down)
+# get up and down genes
+res_filt_genes <- rownames(res_filt)
+res_filt_genes[1:10]
+```
+
+### DGE Heatmap plot
+
+```{r}
+vsd <- vst(dds)
+vsd_count <- assay(vsd)
+dge_heatmap <- pheatmap(vsd_count[res_filt_genes,],
+                       col = gplots::greenred(75),
+                       scale = "row",
+                       show_rownames = FALSE , 
+                       cluster_rows=TRUE, cluster_cols=TRUE, 
+                       annotation_col= metadata)
+dge_heatmap
+```
+
+## Downstream analaysis
+
+### Gene Ontology
+
+```{r, echo=F}
+suppressPackageStartupMessages(library(clusterProfiler))
+suppressPackageStartupMessages(library(org.Hs.eg.db))
+```
+
+```{r go}
+library(clusterProfiler)
+library(org.Hs.eg.db)
+ego <- enrichGO(gene          = res_filt_genes,
+                OrgDb         = org.Hs.eg.db,
+                keyType       = "SYMBOL",
+                ont           = "CC",
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05)
+knitr::kable(head(ego@result))
+```
+
+### Enrichment Plots
+
+#### Barplot 
+
+```{r go_plot_1}
+library(enrichplot)
+go_bar <-barplot(ego, showCategory=20)
+go_bar
+```
+
+#### Dot plot
+
+```{r}
+go_dot <- dotplot(ego, showCategory=20)
+go_dot
+```
+
+#### Enrichment Map
+
+```{r}
+go_emap <-emapplot(ego)
+go_emap
+```
+
+
+# Save data
+
+## Save results
+
+```{r, eval=F}
+write.table(res_filt, "DGE_results_filtered.tsv", sep = "\t")
+```
+
+## Combine plots
+
+```{r}
+library(cowplot)
+all_go_plot <- plot_grid(sample_pca, go_emap, labels = c('A', 'B'))
+all_go_plot
+```
+
+
+## Save plots
+
+```{r, eval=F}
+tiff("DGE_heatmap.tiff")
+all_go_plot
+dev.off()
+```
+
 
 ### Key Points { .session-end }
 * To install packages from Biocondutor `BiocManager::install(pkg_name)`
